@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "jsx": "react",
+    "noEmit": true,
+    "moduleResolution": "node",
+    "baseUrl": "src/",
+    "paths": {
+      "@resources/*": ["resources/*"],
+      "@services/*": ["services/*"],
+      "@ui/*": ["ui/*"],
+      "@utils/*": ["utils/*"],
+      "@navigation/*": ["ui/navigation/*"],
+      "@component/*": ["ui/component/*"],
+      "@screen/*": ["ui/screen/*"],
+      "@view/*": ["ui/view/*"],
+      "@i18n/*": ["resources/i18n/*"],
+      "@theme/*": ["resources/assets/theme/*"],
+      "@assets/*": ["resources/assets/*"],
+    },
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules",
+  ],
+}
