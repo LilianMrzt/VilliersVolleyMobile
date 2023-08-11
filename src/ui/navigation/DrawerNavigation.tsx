@@ -1,10 +1,10 @@
-import React from 'react';
-import HomeScreen from '@ui/views/homeScreen/HomeScreen';
 import Icons from '@assets/Icons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from '@react-navigation/native';
+import HomeScreen from '@ui/views/HomeScreen';
 import I18n from '@utils/I18n';
+import React from 'react';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const Drawer = createDrawerNavigator();
 
