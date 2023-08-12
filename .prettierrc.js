@@ -9,5 +9,5 @@ module.exports = {
   arrowParens: "always",
   organizeImportsSkipDestructiveCodeActions: false,
   endOfLine: "crlf",
-  singleAttributePerLine: true
+  singleAttributePerLine: true,
 };

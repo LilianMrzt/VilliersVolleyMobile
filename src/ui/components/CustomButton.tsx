@@ -8,7 +8,7 @@ const CustomButton: FC<CustomButtonInterface> = ({
     onPress,
     backgroundColor = 'primary',
     fontWeight = 'normal',
-    isScreenWidth = true,
+    isScreenFullWidth = true,
     icon,
     style
 }) => {
@@ -18,7 +18,7 @@ const CustomButton: FC<CustomButtonInterface> = ({
     const iconSize = fontSize * 1.3;
 
     return (
-        <View style={[styles.buttonContainer, isScreenWidth && { width: '100%' }, style]}>
+        <View style={[styles.buttonContainer, isScreenFullWidth && { width: '100%' }, style]}>
             <TouchableOpacity
                 style={[
                     styles.container,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 20,
         paddingTop: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
     },
     container: {
         justifyContent: 'center',
