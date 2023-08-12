@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 20,
         paddingTop: 10,
-        paddingBottom: 10,
+        paddingBottom: 10
     },
     container: {
         justifyContent: 'center',

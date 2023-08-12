@@ -43,6 +43,10 @@ const HomeScreen = () => {
             </View>
 
             <SectionSeparator label={'Profil'} />
+            <SectionSeparator
+                label={'Profil'}
+                icon={ImageConstants.homeLogo}
+            />
 
             <CustomInput
                 label={'Test'}

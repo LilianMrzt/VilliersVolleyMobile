@@ -13,6 +13,7 @@ export interface CustomButtonInterface {
 
 export interface SectionSeparatorInterface {
     label: string;
+    icon?: ImageSourcePropType;
 }
 
 export interface CustomInputInterface {

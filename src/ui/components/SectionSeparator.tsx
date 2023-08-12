@@ -1,16 +1,25 @@
 import { SectionSeparatorInterface } from '@interfaces/ComponentsInterfaces';
 import { useTheme } from '@react-navigation/native';
 import React, { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
-const SectionSeparator: FC<SectionSeparatorInterface> = ({ label }) => {
+const SectionSeparator: FC<SectionSeparatorInterface> = ({ label, icon }) => {
     const { colors } = useTheme();
     const styles = sectionSeparatorStyle(colors);
+
+    const fontSize = 20;
+    const iconSize = fontSize * 1.3;
 
     return (
         <View style={styles.container}>
             <View style={styles.firstLine} />
-            <Text style={styles.label}>{label}</Text>
+            {icon && (
+                <Image
+                    source={icon}
+                    style={[styles.logo, { width: iconSize, height: iconSize }]}
+                />
+            )}
+            <Text style={[styles.label, { fontSize: fontSize }]}>{label}</Text>
             <View style={styles.line} />
         </View>
     );
@@ -26,13 +35,11 @@ const sectionSeparatorStyle = (colors: any) =>
             paddingLeft: 20,
             paddingRight: 20,
             paddingTop: 10,
-            paddingBottom: 10,
+            paddingBottom: 10
         },
         label: {
-            fontSize: 18,
             color: colors.onBackground,
-            marginRight: 20,
-            marginLeft: 20
+            marginRight: 20
         },
         line: {
             flex: 1,
@@ -44,7 +51,12 @@ const sectionSeparatorStyle = (colors: any) =>
             width: 30,
             height: 1,
             backgroundColor: colors.onBackground,
-            borderRadius: 50
+            borderRadius: 50,
+            marginRight: 20
+        },
+        logo: {
+            marginRight: 10,
+            tintColor: colors.onBackground
         }
     });
 
