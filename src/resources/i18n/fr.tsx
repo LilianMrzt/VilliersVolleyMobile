@@ -1,3 +1,6 @@
 export default {
-    HomeScreen: 'Accueil'
+    HomeScreen: 'Accueil',
+    ContactScreen: 'Nous contacter',
+    CalendarScreen: 'Ma semaine de Volley',
+    SettingsScreen: 'Préférences'
 };

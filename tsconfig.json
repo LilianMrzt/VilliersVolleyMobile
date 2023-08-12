@@ -17,6 +17,7 @@
       "@i18n/*": ["resources/i18n/*"],
       "@theme/*": ["resources/assets/theme/*"],
       "@assets/*": ["resources/assets/*"],
+      "@interfaces/*": ["interfaces/*"],
     },
     "allowSyntheticDefaultImports": true
   },

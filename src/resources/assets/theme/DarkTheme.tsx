@@ -3,8 +3,8 @@ import { CustomTheme } from '@theme/CustomTheme';
 const DarkTheme: CustomTheme = {
     dark: true,
     colors: {
-        primary: '#004e59',
-        onPrimary: '#a0efff',
+        primary: '#004d63',
+        onPrimary: '#bce9ff',
         secondary: '#e7c449',
         onSecondary: '#3c2f00',
         tertiary: '#58d6f7',

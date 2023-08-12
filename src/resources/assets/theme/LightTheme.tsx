@@ -3,8 +3,8 @@ import { CustomTheme } from '@theme/CustomTheme';
 const LightTheme: CustomTheme = {
     dark: false,
     colors: {
-        primary: '#a0efff',
-        onPrimary: '#001f25',
+        primary: '#bce9ff',
+        onPrimary: '#001f2a',
         secondary: '#ffe07f',
         onSecondary: '#231b00',
         tertiary: '#00677c',

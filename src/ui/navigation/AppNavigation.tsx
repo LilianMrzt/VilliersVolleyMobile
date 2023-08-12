@@ -1,21 +1,21 @@
 import DrawerNavigation from '@navigation/DrawerNavigation';
 import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from '@ui/views/SplashScreen';
-import RouteConstants from '@utils/RouteConstants';
 import React from 'react';
+import RouteConstants from '../../constants/RouteConstants';
 
 const Stack = createStackNavigator();
 
 const AppNavigation = () => {
     return (
         <Stack.Navigator
-            initialRouteName={RouteConstants.SPLASHSCREEN}
+            initialRouteName={RouteConstants.SPLASH_SCREEN}
             screenOptions={{
                 headerShown: false
             }}
         >
             <Stack.Screen
-                name={RouteConstants.SPLASHSCREEN}
+                name={RouteConstants.SPLASH_SCREEN}
                 component={SplashScreen}
             />
             <Stack.Screen
