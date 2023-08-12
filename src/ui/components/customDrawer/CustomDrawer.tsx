@@ -1,7 +1,4 @@
-import {
-    DrawerContentScrollView,
-    DrawerItemList
-} from '@react-navigation/drawer';
+import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useNavigation, useTheme } from '@react-navigation/native';
 import ImageButton from '@ui/components/customDrawer/ImageButton';
 import Size from '@utils/Size';
@@ -26,11 +23,7 @@ const CustomDrawer = (props) => {
                     <ImageButton
                         source={ImageConstants.defaultUser}
                         style={styles.user}
-                        onPress={() =>
-                            navigation.navigate(
-                                RouteConstants.SETTINGS_SCREEN as never
-                            )
-                        }
+                        onPress={() => navigation.navigate(RouteConstants.SETTINGS_SCREEN as never)}
                     />
                     <Text style={styles.userInfos}>FirstName LastName</Text>
                 </View>

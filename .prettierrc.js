@@ -1,5 +1,5 @@
 module.exports = {
-  printWidth: 80,
+  printWidth: 140,
   tabWidth: 4,
   semi: true,
   singleQuote: true,
@@ -8,5 +8,6 @@ module.exports = {
   jsxBracketSameLine: false,
   arrowParens: "always",
   organizeImportsSkipDestructiveCodeActions: false,
-
+  endOfLine: "crlf",
+  singleAttributePerLine: true
 };
