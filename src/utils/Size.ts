@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 
 export default {
     getScreenHeight() {
@@ -7,5 +7,9 @@ export default {
 
     getScreenWidth() {
         return Dimensions.get('screen').width;
+    },
+
+    getWindowContentHeight() {
+        return this.getScreenHeight() - 60 - StatusBar.currentHeight;
     }
 };

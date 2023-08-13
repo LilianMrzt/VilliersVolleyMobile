@@ -15,6 +15,8 @@ export interface CustomTheme extends Theme {
         onErrorContainer: string;
         background: string;
         onBackground: string;
+        borderOutline: string;
+        onBorderOutline: string;
     };
 }
 declare module '@react-navigation/native' {

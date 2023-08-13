@@ -1,6 +1,6 @@
+import ImageButton from '@components/common/ImageButton';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useNavigation, useTheme } from '@react-navigation/native';
-import ImageButton from '@ui/components/customDrawer/ImageButton';
 import Size from '@utils/Size';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -22,7 +22,8 @@ const CustomDrawer = (props) => {
                 <View style={styles.drawerHeader}>
                     <ImageButton
                         source={ImageConstants.defaultUser}
-                        style={styles.user}
+                        size={Size.getScreenWidth() * 0.3}
+                        color={colors.tertiary}
                         onPress={() => navigation.navigate(RouteConstants.SETTINGS_SCREEN as never)}
                     />
                     <Text style={styles.userInfos}>FirstName LastName</Text>
@@ -56,12 +57,6 @@ const customDrawerStyle = (colors: any) =>
         drawerItems: {
             flex: 1,
             backgroundColor: colors.background
-        },
-        user: {
-            width: Size.getScreenWidth() * 0.3,
-            height: undefined,
-            aspectRatio: 1,
-            tintColor: colors.tertiary
         },
         userInfos: {
             color: colors.tertiary,

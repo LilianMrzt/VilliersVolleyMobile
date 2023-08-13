@@ -19,7 +19,7 @@ const SectionSeparator: FC<SectionSeparatorInterface> = ({ label, icon }) => {
                     style={[styles.logo, { width: iconSize, height: iconSize }]}
                 />
             )}
-            <Text style={[styles.label, { fontSize: fontSize }]}>{label}</Text>
+            {label && <Text style={[styles.label, { fontSize: fontSize }, !icon && { marginLeft: 20 }]}>{label}</Text>}
             <View style={styles.line} />
         </View>
     );
@@ -44,18 +44,16 @@ const sectionSeparatorStyle = (colors: any) =>
         line: {
             flex: 1,
             height: 1,
-            backgroundColor: colors.onBackground,
-            borderRadius: 50
+            backgroundColor: colors.onBackground
         },
         firstLine: {
             width: 30,
             height: 1,
-            backgroundColor: colors.onBackground,
-            borderRadius: 50,
-            marginRight: 20
+            backgroundColor: colors.onBackground
         },
         logo: {
             marginRight: 10,
+            marginLeft: 20,
             tintColor: colors.onBackground
         }
     });

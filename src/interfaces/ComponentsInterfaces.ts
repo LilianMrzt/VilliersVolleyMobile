@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { ImageSourcePropType, KeyboardTypeOptions, ViewStyle } from 'react-native';
 
 export interface CustomButtonInterface {
@@ -12,7 +12,7 @@ export interface CustomButtonInterface {
 }
 
 export interface SectionSeparatorInterface {
-    label: string;
+    label?: string;
     icon?: ImageSourcePropType;
 }
 
@@ -26,4 +26,10 @@ export interface CustomInputInterface {
     placeholder?: string;
     keyboardType?: KeyboardTypeOptions;
     style?: ViewStyle;
+}
+
+export interface RowInterface {
+    children: React.ReactNode;
+    style?: any;
+    justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
 }

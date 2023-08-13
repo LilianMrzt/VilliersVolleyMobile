@@ -1,7 +1,7 @@
+import ImageIcon from '@components/common/ImageIcon';
+import CustomDrawer from '@components/customDrawer/CustomDrawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from '@react-navigation/native';
-import CustomDrawer from '@ui/components/customDrawer/CustomDrawer';
-import ImageIcon from '@ui/components/customDrawer/ImageIcon';
 import CalendarScreen from '@ui/views/CalendarScreen';
 import ContactScreen from '@ui/views/ContactScreen';
 import HomeScreen from '@ui/views/HomeScreen';

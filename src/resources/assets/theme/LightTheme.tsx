@@ -18,7 +18,9 @@ const LightTheme: CustomTheme = {
         card: '#ffffff',
         text: '#ffffff',
         border: '#ffffff',
-        notification: '#ffffff'
+        notification: '#ffffff',
+        borderOutline: '#dce4e9',
+        onBorderOutline: '#40484c'
     }
 };
 

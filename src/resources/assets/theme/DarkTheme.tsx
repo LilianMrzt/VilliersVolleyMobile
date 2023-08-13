@@ -18,7 +18,9 @@ const DarkTheme: CustomTheme = {
         card: '#ffffff',
         text: '#ffffff',
         border: '#ffffff',
-        notification: '#ffffff'
+        notification: '#ffffff',
+        borderOutline: '#40484c',
+        onBorderOutline: '#c0c8cd'
     }
 };
 

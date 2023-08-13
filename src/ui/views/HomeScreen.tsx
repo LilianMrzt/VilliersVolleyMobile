@@ -1,7 +1,7 @@
+import CustomButton from '@components/common/CustomButton';
+import CustomInput from '@components/common/CustomInput';
+import SectionSeparator from '@components/common/SectionSeparator';
 import { useTheme } from '@react-navigation/native';
-import CustomButton from '@ui/components/CustomButton';
-import CustomInput from '@ui/components/CustomInput';
-import SectionSeparator from '@ui/components/SectionSeparator';
 import I18n from '@utils/I18n';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
