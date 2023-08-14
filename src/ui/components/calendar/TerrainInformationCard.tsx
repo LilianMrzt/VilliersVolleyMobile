@@ -97,7 +97,7 @@ const terrainInformationsCardStyle = (colors) =>
         terrainColor: {
             height: '100%',
             width: 20,
-            borderRadius: 20,
+            borderRadius: 20
         },
         text: {
             color: colors.onPrimary,

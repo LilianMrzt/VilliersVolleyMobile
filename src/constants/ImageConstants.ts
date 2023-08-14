@@ -10,5 +10,8 @@ export default {
     leftArrow: require('@assets/images/leftArrow.png'),
     rightArrow: require('@assets/images/rightArrow.png'),
     team: require('@assets/images/team.png'),
-    volleyballBall: require('@assets/images/volleyballBall.png')
+    volleyballBall: require('@assets/images/volleyballBall.png'),
+    volleyballBall2: require('@assets/images/volleyballBall2.png'),
+    information: require('@assets/images/information.png'),
+    news: require('@assets/images/news.png')
 };

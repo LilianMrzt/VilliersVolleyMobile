@@ -26,7 +26,28 @@ function getMonthLabel(monthNumber) {
     return '';
 }
 
+function formatDate(inputDateString) {
+    const date = new Date(inputDateString);
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const year = date.getUTCFullYear();
+
+    return `${day}/${month}/${year}`;
+}
+
+function extractConcatenatedDates(inputString) {
+    const numberChunks = inputString.match(/\d+/g);
+    if (!numberChunks) {
+        return NaN; // No numbers found in the string
+    }
+
+    const concatenatedNumber = numberChunks.join('');
+    return parseInt(concatenatedNumber);
+}
+
 export const dateUtils = {
     getDayLabel,
-    getMonthLabel
+    getMonthLabel,
+    formatDate,
+    extractConcatenatedDates
 };

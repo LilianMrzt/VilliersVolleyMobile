@@ -1,4 +1,4 @@
-import { ColorValue, DimensionValue, ImageSourcePropType, ViewStyle } from 'react-native';
+import { ColorValue, DimensionValue, ImageSourcePropType, ImageStyle, ViewStyle } from 'react-native';
 
 export interface ImageButtonInterface {
     source: ImageSourcePropType;
@@ -12,4 +12,5 @@ export interface ImageIconInterface {
     source: ImageSourcePropType;
     size: DimensionValue;
     color: ColorValue;
+    style?: ImageStyle;
 }

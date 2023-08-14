@@ -5,5 +5,6 @@ export default {
     HOME_SCREEN: 'HomeScreen',
     CALENDAR_SCREEN: 'CalendarScreen',
     SETTINGS_SCREEN: 'SettingsScreen',
-    CONTACT_SCREEN: 'ContactScreen'
+    CONTACT_SCREEN: 'ContactScreen',
+    NEWS_SCREEN: 'NewsScreen'
 };

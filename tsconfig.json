@@ -7,6 +7,7 @@
     "baseUrl": "src/",
     "paths": {
       "@resources/*": ["resources/*"],
+      "@api/*": ["api/*"],
       "@services/*": ["services/*"],
       "@ui/*": ["ui/*"],
       "@utils/*": ["utils/*"],

@@ -5,6 +5,7 @@ import { useTheme } from '@react-navigation/native';
 import CalendarScreen from '@ui/views/CalendarScreen';
 import ContactScreen from '@ui/views/ContactScreen';
 import HomeScreen from '@ui/views/HomeScreen';
+import NewsScreen from '@ui/views/NewsScreen';
 import SettingsScreen from '@ui/views/SettingsScreen';
 import I18n from '@utils/I18n';
 import React from 'react';
@@ -57,6 +58,21 @@ const DrawerNavigation = () => {
                         />
                     ),
                     title: I18n.t('CalendarScreen')
+                }}
+            />
+
+            <Drawer.Screen
+                name={RouteConstants.NEWS_SCREEN}
+                component={NewsScreen}
+                options={{
+                    drawerIcon: ({ color, size }) => (
+                        <ImageIcon
+                            source={ImageConstants.news}
+                            size={size}
+                            color={color}
+                        />
+                    ),
+                    title: I18n.t('NewsScreen')
                 }}
             />
 

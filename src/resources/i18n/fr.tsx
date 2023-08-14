@@ -3,6 +3,7 @@ export default {
     ContactScreen: 'Nous contacter',
     CalendarScreen: 'Ma semaine de Volley',
     SettingsScreen: 'Préférences',
+    NewsScreen: 'Actualités du club',
 
     January: 'Janvier',
     February: 'Février',
@@ -29,5 +30,12 @@ export default {
     Trainer: 'Entraineur',
     NoAvailableTerrain: 'Pas de terrain disponible ce jour',
     Unavailable: 'Indisponible',
-    Reason: 'Raison'
+    Reason: 'Raison',
+
+    LastNews: 'Dernières actualités',
+    SeeMoreNews: "Voir plus d'actualités +",
+    QuickAccess: 'Accès Rapide',
+    Informations: 'Informations',
+    KnowMore: 'En savoir plus +',
+    Welcome: 'Bienvenue'
 };

@@ -7,14 +7,17 @@ const CustomButton: FC<CustomButtonInterface> = ({
     label,
     onPress,
     backgroundColor = 'primary',
+    textColor = 'onPrimary',
     fontWeight = 'normal',
     isScreenFullWidth = true,
     icon,
-    style
+    style,
+    fontSize = 20,
+    borderWidth = 0,
+    borderColor = 'onPrimary'
 }) => {
     const { colors } = useTheme();
 
-    const fontSize = 20;
     const iconSize = fontSize * 1.3;
 
     return (
@@ -22,8 +25,18 @@ const CustomButton: FC<CustomButtonInterface> = ({
             <TouchableOpacity
                 style={[
                     styles.container,
-                    { backgroundColor: colors[backgroundColor] },
-                    backgroundColor !== 'background' && styles.containerShadows
+                    {
+                        backgroundColor: colors[backgroundColor],
+                        borderWidth: borderWidth,
+                        borderColor:
+                            backgroundColor === 'transparent'
+                                ? colors[borderColor]
+                                : colors[`on${borderColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
+                        padding: fontSize / 2,
+                        paddingLeft: fontSize,
+                        paddingRight: fontSize
+                    },
+                    backgroundColor !== 'transparent' && styles.containerShadows
                 ]}
                 onPress={onPress}
             >
@@ -33,7 +46,10 @@ const CustomButton: FC<CustomButtonInterface> = ({
                         style={[
                             styles.icon,
                             {
-                                tintColor: colors[`on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
+                                tintColor:
+                                    backgroundColor === 'transparent'
+                                        ? colors[textColor]
+                                        : colors[`on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
                                 width: iconSize,
                                 height: iconSize
                             }
@@ -42,7 +58,10 @@ const CustomButton: FC<CustomButtonInterface> = ({
                 )}
                 <Text
                     style={{
-                        color: colors[`on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
+                        color:
+                            backgroundColor === 'transparent'
+                                ? colors[textColor]
+                                : colors[`on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
                         fontWeight: fontWeight,
                         fontSize: fontSize
                     }}
@@ -65,7 +84,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
-        padding: 10,
         flexDirection: 'row'
     },
     containerShadows: {
