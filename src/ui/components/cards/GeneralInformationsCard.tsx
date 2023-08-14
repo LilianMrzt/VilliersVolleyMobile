@@ -6,12 +6,16 @@ import { GeneralInformationsCardInterface } from '@interfaces/GeneralInformation
 import { useTheme } from '@react-navigation/native';
 import I18n from '@utils/I18n';
 import Size from '@utils/Size';
-import React, { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import formatTextWithBold from '@utils/TextUtils';
+import React, { FC, useState } from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import Modal from 'react-native-modal';
 
 const GeneralInformationsCard: FC<GeneralInformationsCardInterface> = ({ title, content }) => {
     const { colors } = useTheme();
     const styles = generalInformationsCardStyle(colors);
+
+    const [isVisible, setIsVisible] = useState(false);
 
     return (
         <View style={styles.container}>
@@ -28,13 +32,41 @@ const GeneralInformationsCard: FC<GeneralInformationsCardInterface> = ({ title, 
 
                 <CustomButton
                     label={I18n.t('KnowMore')}
-                    onPress={() => {}}
+                    onPress={() => {
+                        setIsVisible(true);
+                    }}
                     backgroundColor={'transparent'}
                     isScreenFullWidth={false}
                     fontSize={14}
                     style={{ paddingRight: 0, paddingBottom: 0 }}
                 />
             </View>
+
+            <Modal
+                coverScreen={true}
+                isVisible={isVisible}
+                onBackdropPress={() => setIsVisible(false)}
+                hideModalContentWhileAnimating={true}
+                backdropTransitionOutTiming={0}
+                statusBarTranslucent={true}
+                useNativeDriverForBackdrop={true}
+                animationIn={'fadeIn'}
+                animationOut={'fadeOut'}
+            >
+                <View style={styles.modalView}>
+                    <ScrollView contentContainerStyle={styles.modalContent}>
+                        <Text style={styles.modalTitleText}>{title}</Text>
+                        <Text style={styles.modalText}>{formatTextWithBold(content, colors.onBackground)}</Text>
+                    </ScrollView>
+                    <CustomButton
+                        label={'Fermer'}
+                        onPress={() => setIsVisible(false)}
+                        style={styles.closeButton}
+                        isScreenFullWidth={false}
+                        hasShadows={false}
+                    />
+                </View>
+            </Modal>
         </View>
     );
 };
@@ -66,6 +98,31 @@ const generalInformationsCardStyle = (colors: any) =>
             fontWeight: 'bold',
             fontSize: 20,
             flex: 1
+        },
+        modalTitleText: {
+            color: colors.onBackground,
+            fontWeight: 'bold',
+            fontSize: 20,
+            marginBottom: 10
+        },
+        modalView: {
+            width: Size.getScreenWidth() - 40,
+            maxHeight: Size.getScreenHeight() - 140,
+            backgroundColor: colors.background,
+            borderRadius: 10,
+            alignItems: 'center'
+        },
+        modalText: {
+            color: colors.onBackground
+        },
+        modalContent: {
+            padding: 20,
+            paddingBottom: 80
+        },
+        closeButton: {
+            position: 'absolute',
+            bottom: 5,
+            alignSelf: 'flex-end'
         }
     });
 

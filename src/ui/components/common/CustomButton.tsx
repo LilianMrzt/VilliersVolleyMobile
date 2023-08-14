@@ -14,7 +14,8 @@ const CustomButton: FC<CustomButtonInterface> = ({
     style,
     fontSize = 20,
     borderWidth = 0,
-    borderColor = 'onPrimary'
+    borderColor = 'onPrimary',
+    hasShadows = true
 }) => {
     const { colors } = useTheme();
 
@@ -36,7 +37,7 @@ const CustomButton: FC<CustomButtonInterface> = ({
                         paddingLeft: fontSize,
                         paddingRight: fontSize
                     },
-                    backgroundColor !== 'transparent' && styles.containerShadows
+                    backgroundColor !== 'transparent' && hasShadows && styles.containerShadows
                 ]}
                 onPress={onPress}
             >

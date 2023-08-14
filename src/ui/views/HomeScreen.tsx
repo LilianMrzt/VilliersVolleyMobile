@@ -51,16 +51,17 @@ const HomeScreen = ({ navigation }) => {
                 <SectionSeparator label={I18n.t('Informations')} />
                 <GeneralInformationsCard
                     title={generalInformations?.Titre}
-                    content={''}
+                    content={generalInformations?.Contenu}
                 />
             </View>
 
             <View>
                 <SectionSeparator label={I18n.t('LastNews')} />
-                {homeScreenArticles.map((last3PublishedArticle) => (
+                {homeScreenArticles.map((article, index) => (
                     <NewsCard
-                        title={last3PublishedArticle.attributes.Titre}
-                        publishedDate={dateUtils.formatDate(last3PublishedArticle.attributes.publishedAt)}
+                        key={index}
+                        title={article.attributes.Titre}
+                        publishedDate={dateUtils.formatDate(article.attributes.publishedAt)}
                     />
                 ))}
                 <CustomButton

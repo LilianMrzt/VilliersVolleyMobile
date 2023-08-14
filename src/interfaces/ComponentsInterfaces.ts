@@ -13,6 +13,7 @@ export interface CustomButtonInterface {
     fontSize?: number;
     borderWidth?: number;
     borderColor?: 'onPrimary' | 'onSecondary' | 'onTertiary' | 'onBackground';
+    hasShadows?: boolean;
 }
 
 export interface SectionSeparatorInterface {
