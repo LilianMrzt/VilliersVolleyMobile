@@ -1,20 +1,46 @@
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
 import ImageConstants from '@constants/ImageConstants';
-import { useTheme } from '@react-navigation/native';
+import RouteConstants from '@constants/RouteConstants';
+import { useNavigation, useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const NewsCard = ({ important = false, title, publishedDate }) => {
+const NewsCard = ({ important, title, publishedDate, content, index, fromHomeScreen = false }) => {
     const { colors } = useTheme();
     const styles = newsCardStyle(colors);
 
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.newsCard}>
+            <TouchableOpacity
+                style={styles.newsCard}
+                onPress={() => {
+                    if (fromHomeScreen) {
+                        navigation.navigate(
+                            RouteConstants.NEWS_STACK_NAVIGATION as never,
+                            {
+                                title: title,
+                                content: content,
+                                fromHomeScreen: fromHomeScreen
+                            } as never
+                        );
+                    } else {
+                        navigation.navigate(
+                            RouteConstants.NEWS_ARTICLE_SCREEN as never,
+                            {
+                                title: title,
+                                content: content,
+                                fromHomeScreen: fromHomeScreen
+                            } as never
+                        );
+                    }
+                }}
+            >
                 <Row alignItems={'flex-start'}>
-                    {important && (
+                    {important && index === 0 && (
                         <ImageIcon
                             source={ImageConstants.news}
                             size={80}
@@ -28,10 +54,14 @@ const NewsCard = ({ important = false, title, publishedDate }) => {
                         >
                             {title}
                         </Text>
-                        {important && (
+                        {important && index === 0 && (
                             <View>
-                                <Text style={styles.previewText}>Test</Text>
-                                <Text style={styles.previewText}>Test</Text>
+                                <Text
+                                    numberOfLines={2}
+                                    style={styles.previewText}
+                                >
+                                    {content}
+                                </Text>
                             </View>
                         )}
                         <Text style={styles.publishedDate}>{publishedDate}</Text>
@@ -76,7 +106,8 @@ const newsCardStyle = (colors: any) =>
         publishedDate: {
             color: colors.onPrimary,
             fontSize: 12,
-            alignSelf: 'flex-end'
+            alignSelf: 'flex-end',
+            marginTop: 5
         },
         textBox: {
             marginLeft: 10,

@@ -21,10 +21,34 @@ const HomeScreen = ({ navigation }) => {
     const [homeScreenArticles, setHomeScreenArticles] = useState([]);
     const [generalInformations, setGeneralInformations] = useState<GeneralInformationsInterfaces>();
 
+    //console.log(navigation)
+
     useEffect(() => {
-        setHomeScreenArticles(Api.getArticles().slice(0, 3));
+        fetchHomeScreenArticles();
         setGeneralInformations(Api.getGeneralInformations());
     }, []);
+
+    const fetchHomeScreenArticles = () => {
+        const articles = Api.getArticles();
+        const importantArticles = articles.filter((article) => article.attributes.important === true);
+
+        if (importantArticles.length > 0) {
+            importantArticles.sort((a, b) => {
+                return (
+                    dateUtils.extractConcatenatedDates(b.attributes.publishedAt) -
+                    dateUtils.extractConcatenatedDates(a.attributes.publishedAt)
+                );
+            });
+
+            const importantArticle = importantArticles.slice(0, 1);
+
+            const otherArticles = articles.filter((article) => article.id !== importantArticle[0].id).slice(0, 1);
+
+            setHomeScreenArticles([...importantArticle, ...otherArticles]);
+        } else {
+            setHomeScreenArticles(articles.slice(0, 3));
+        }
+    };
 
     const insets = useSafeAreaInsets();
 
@@ -50,27 +74,29 @@ const HomeScreen = ({ navigation }) => {
                 <Text style={styles.homeText}>{I18n.t('Welcome')}</Text>
                 <SectionSeparator label={I18n.t('Informations')} />
                 <GeneralInformationsCard
-                    title={generalInformations?.Titre}
-                    content={generalInformations?.Contenu}
+                    title={generalInformations?.title}
+                    content={generalInformations?.content}
                 />
-            </View>
-
-            <View>
-                <SectionSeparator label={I18n.t('LastNews')} />
                 {homeScreenArticles.map((article, index) => (
                     <NewsCard
                         key={index}
-                        title={article.attributes.Titre}
+                        title={article.attributes.title}
                         publishedDate={dateUtils.formatDate(article.attributes.publishedAt)}
+                        important={article.attributes.important}
+                        content={article.attributes.content}
+                        index={index}
+                        fromHomeScreen={true}
                     />
                 ))}
                 <CustomButton
                     label={I18n.t('SeeMoreNews')}
-                    onPress={() => navigation.navigate(RouteConstants.NEWS_SCREEN)}
+                    onPress={() =>
+                        navigation.navigate(RouteConstants.NEWS_STACK_NAVIGATION as never, { screen: RouteConstants.NEWS_SCREEN } as never)
+                    }
                     backgroundColor={'transparent'}
                     isScreenFullWidth={false}
                     fontSize={14}
-                    style={{ paddingRight: 10, paddingTop: 0, alignSelf: 'flex-end' }}
+                    style={{ paddingRight: 10, paddingTop: 0, alignSelf: 'flex-end', paddingBottom: 20 }}
                 />
             </View>
 
@@ -83,10 +109,13 @@ const HomeScreen = ({ navigation }) => {
                 />
                 <CustomButton
                     label={I18n.t('NewsScreen')}
-                    onPress={() => navigation.navigate(RouteConstants.NEWS_SCREEN)}
+                    onPress={() =>
+                        navigation.navigate(RouteConstants.NEWS_STACK_NAVIGATION as never, { screen: RouteConstants.NEWS_SCREEN } as never)
+                    }
                     backgroundColor={'secondary'}
                 />
             </View>
+            <View />
         </View>
     );
 };
@@ -96,16 +125,16 @@ const homeScreenStyle = (colors: any) =>
         container: {
             flex: 1,
             backgroundColor: colors.background,
-            justifyContent: 'space-between'
+            justifyContent: 'flex-start'
         },
         backgroundImage: {
             position: 'absolute',
-            top: 0,
+            bottom: -90,
             right: -90,
             opacity: 0.4
         },
         homeText: {
-            fontSize: 42,
+            fontSize: 36,
             color: colors.onBackground,
             fontWeight: 'bold',
             width: '100%',

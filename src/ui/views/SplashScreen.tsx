@@ -11,7 +11,10 @@ const SplashScreen = ({ navigation }) => {
 
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate(RouteConstants.DRAWER_NAVIGATION);
+            navigation.reset({
+                index: 0,
+                routes: [{ name: RouteConstants.DRAWER_NAVIGATION }]
+            });
         }, 2000);
     }, []);
 

@@ -1,11 +1,12 @@
 import ImageIcon from '@components/common/ImageIcon';
 import CustomDrawer from '@components/customDrawer/CustomDrawer';
+import HeaderLeft from '@components/header/HeaderLeft';
+import NewsStackNavigation from '@navigation/NewsStackNavigation';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from '@react-navigation/native';
 import CalendarScreen from '@ui/views/CalendarScreen';
 import ContactScreen from '@ui/views/ContactScreen';
 import HomeScreen from '@ui/views/HomeScreen';
-import NewsScreen from '@ui/views/NewsScreen';
 import SettingsScreen from '@ui/views/SettingsScreen';
 import I18n from '@utils/I18n';
 import React from 'react';
@@ -16,6 +17,7 @@ const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () => {
     const { colors } = useTheme();
+
     return (
         <Drawer.Navigator
             drawerContent={(props) => <CustomDrawer {...props} />}
@@ -28,7 +30,8 @@ const DrawerNavigation = () => {
                 headerStyle: {
                     backgroundColor: colors.background,
                     elevation: 0
-                }
+                },
+                headerLeft: () => <HeaderLeft />
             }}
         >
             <Drawer.Screen
@@ -62,8 +65,8 @@ const DrawerNavigation = () => {
             />
 
             <Drawer.Screen
-                name={RouteConstants.NEWS_SCREEN}
-                component={NewsScreen}
+                name={RouteConstants.NEWS_STACK_NAVIGATION}
+                component={NewsStackNavigation}
                 options={{
                     drawerIcon: ({ color, size }) => (
                         <ImageIcon
@@ -72,7 +75,8 @@ const DrawerNavigation = () => {
                             color={color}
                         />
                     ),
-                    title: I18n.t('NewsScreen')
+                    title: I18n.t('NewsScreen'),
+                    headerShown: false
                 }}
             />
 

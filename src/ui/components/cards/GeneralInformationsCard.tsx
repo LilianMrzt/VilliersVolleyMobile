@@ -2,7 +2,7 @@ import CustomButton from '@components/common/CustomButton';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
 import ImageConstants from '@constants/ImageConstants';
-import { GeneralInformationsCardInterface } from '@interfaces/GeneralInformationsInterfaces';
+import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsInterfaces';
 import { useTheme } from '@react-navigation/native';
 import I18n from '@utils/I18n';
 import Size from '@utils/Size';
@@ -11,7 +11,7 @@ import React, { FC, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Modal from 'react-native-modal';
 
-const GeneralInformationsCard: FC<GeneralInformationsCardInterface> = ({ title, content }) => {
+const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, content }) => {
     const { colors } = useTheme();
     const styles = generalInformationsCardStyle(colors);
 
@@ -76,8 +76,8 @@ const generalInformationsCardStyle = (colors: any) =>
         container: {
             width: Size.getScreenWidth(),
             padding: 20,
-            paddingTop: 10,
-            paddingBottom: 10
+            paddingTop: 0,
+            paddingBottom: 5
         },
         touchable: {
             backgroundColor: colors.primary,

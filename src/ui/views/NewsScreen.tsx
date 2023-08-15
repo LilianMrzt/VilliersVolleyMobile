@@ -16,8 +16,11 @@ const NewsScreen = () => {
             {articles.map((article, index) => (
                 <NewsCard
                     key={index}
-                    title={article.attributes.Titre}
+                    title={article.attributes.title}
                     publishedDate={dateUtils.formatDate(article.attributes.publishedAt)}
+                    content={article.attributes.content}
+                    important={article.attributes.important}
+                    index={undefined}
                 />
             ))}
         </View>

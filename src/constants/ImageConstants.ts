@@ -13,5 +13,7 @@ export default {
     volleyballBall: require('@assets/images/volleyballBall.png'),
     volleyballBall2: require('@assets/images/volleyballBall2.png'),
     information: require('@assets/images/information.png'),
-    news: require('@assets/images/news.png')
+    news: require('@assets/images/news.png'),
+    backArrow: require('@assets/images/backArrow.png'),
+    menu: require('@assets/images/menu.png')
 };

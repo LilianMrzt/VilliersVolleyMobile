@@ -2,13 +2,12 @@ export const generalInformationsFixtures = {
     data: {
         id: 1,
         attributes: {
-            Titre: 'Informations Vacances de Pâques 2023',
-            Contenu:
-                "Durant les vacances scolaires de Pâques 2023, le Service des Sports de la ville ne nous pas donné au gymnase Yves Querlier nos créneaux habituels pour la salle 30x20, **mais seulement ceux dans la salle 40x20**\n \n \nDonc :\n1. **Pour les joueuses et joueurs FFVB\nmerci de vous rapprocher de vos entraineurs** pour connaître les entrainements possibles, s'ils en dispensent pendant ces vacances.\n\n1. **Pour les joueuses et joueurs du Loisir**\ncréneaux possibles :\n**Lundi 24/05 de 20h00 > 22h00\nVendredis (28/04 et 05/05) de 20h00 > 22h00**  \n\n1. **Pour les joueuses et joueurs de la FSGT**\ncréneaux possibles :\n**Lundi 24/05 de 20h00 > 22h00\n2 Mercredis (26/04 et 03/05) de 20h00 > 22h00**  \n\n1. **Pour l'Ecole de Volley (EDV)**\npas de séances d'entrainements **les 3 samedis (22/04, 29/04 et 06/05/2023)**\nReprise le **Samedi 13/05 10h30 > 12h00** \n\n1. **Pour l'Ecole de Volley (EDV)**\npas de séances d'entrainements **les 3 samedis (22/04, 29/04 et 06/05/2023)**\nReprise le **Samedi 13/05 10h30 > 12h00**\n\n1. **Pour l'Ecole de Volley (EDV)**\npas de séances d'entrainements **les 3 samedis (22/04, 29/04 et 06/05/2023)**\nReprise le **Samedi 13/05 10h30 > 12h00**\n\n1. **Pour l'Ecole de Volley (EDV)**\npas de séances d'entrainements **les 3 samedis (22/04, 29/04 et 06/05/2023)**\nReprise le **Samedi 13/05 10h30 > 12h00**  \n\n**Bonnes vacances pour ceux et celles qui en disposent, et à très bientôt.**",
-            createdAt: '2023-07-17T22:31:51.770Z',
-            updatedAt: '2023-07-17T22:31:59.299Z',
-            publishedAt: '2023-07-17T22:31:59.297Z',
-            Image_URL: 'https://cdn-icons-png.flaticon.com/128/189/189664.png'
+            createdAt: '2023-08-14T20:16:21.610Z',
+            updatedAt: '2023-08-14T20:16:23.639Z',
+            publishedAt: '2023-08-14T20:16:23.637Z',
+            title: "Information vacances d'été 2023",
+            content:
+                "La saison des entraînements pour toutes les sections se terminera **au soir du Mecredi** 28/06 car le Gymnase Yves Querlier est **fermé le Vendredi 30/06 et le Samedi 01/07/2023**\n \nLa **dernière séance** de l'**Ecole de Volley** est donc prévue ce **samedi 24/06 de 10h30 à 12h00**\n \n**l'Assemblée Générale du club aura lieu le Vendredi 30/06 dès 18h30** dans la **Véranda du Service Des Sports** au 1 rue Entroncamento 94350 Villiers sur Marne\n \nles **inscriptions** pour la saison **2023-2024** seront possibles selon formulaire disponible sur le site web du club http://www.volley-villiers94.org **après le 15/08/2023**\n \n**La prochaine saison** commencera **dès le Lundi 28/08/2023** sur le créneau 18h00>21h00 selon indication des entraineurs à venir, (puis le Mercredi 30/08 et le Vendredi 01/09 aux mêmes heures).\n \nLes semaines suivantes, les créneaux redeviendront ceux de cette saison, soit de 18h00>23h00 selon section.\n \nReprise de l'**école de Volley** le **Samedi 09/09/2023 de 10H30 à 12H00**\n \nBonnes vacances d'été sportives à tou(te)s"
         }
     },
     meta: {}
