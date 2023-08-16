@@ -13,14 +13,16 @@ const DarkTheme: CustomTheme = {
         onError: '#690005',
         errorContainer: '#93000a',
         onErrorContainer: '#ffdad6',
-        background: '#001f25',
-        onBackground: '#a6eeff',
+        background: '#171717',
+        onBackground: '#dcdcdc',
         card: '#ffffff',
         text: '#ffffff',
         border: '#ffffff',
         notification: '#ffffff',
         borderOutline: '#40484c',
-        onBorderOutline: '#c0c8cd'
+        onBorderOutline: '#c0c8cd',
+        surface: '#1f1f1f',
+        onSurface: '#eeeeee'
     }
 };
 

@@ -15,5 +15,6 @@ export default {
     information: require('@assets/images/information.png'),
     news: require('@assets/images/news.png'),
     backArrow: require('@assets/images/backArrow.png'),
+    forwardArrow: require('@assets/images/forwardArrow.png'),
     menu: require('@assets/images/menu.png')
 };

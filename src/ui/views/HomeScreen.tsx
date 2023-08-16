@@ -1,9 +1,11 @@
 import Api from '@api/Api';
+import CustomHeaderCard from '@components/cards/CustomHeaderCard';
 import GeneralInformationsCard from '@components/cards/GeneralInformationsCard';
 import NewsCard from '@components/cards/NewsCard';
+import ShortcutCard from '@components/cards/ShortcutCard';
 import CustomButton from '@components/common/CustomButton';
 import ImageIcon from '@components/common/ImageIcon';
-import SectionSeparator from '@components/common/SectionSeparator';
+import Row from '@components/common/Row';
 import RouteConstants from '@constants/RouteConstants';
 import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsInterfaces';
 import { useTheme } from '@react-navigation/native';
@@ -42,7 +44,7 @@ const HomeScreen = ({ navigation }) => {
 
             const importantArticle = importantArticles.slice(0, 1);
 
-            const otherArticles = articles.filter((article) => article.id !== importantArticle[0].id).slice(0, 1);
+            const otherArticles = articles.filter((article) => article.id !== importantArticle[0].id).slice(0, 2);
 
             setHomeScreenArticles([...importantArticle, ...otherArticles]);
         } else {
@@ -70,9 +72,9 @@ const HomeScreen = ({ navigation }) => {
                 style={styles.backgroundImage}
             />
 
+            <CustomHeaderCard label={I18n.t('ClubName')} />
             <View>
-                <Text style={styles.homeText}>{I18n.t('Welcome')}</Text>
-                <SectionSeparator label={I18n.t('Informations')} />
+                <Text style={styles.titleText}>{I18n.t('Informations')}</Text>
                 <GeneralInformationsCard
                     title={generalInformations?.title}
                     content={generalInformations?.content}
@@ -96,25 +98,34 @@ const HomeScreen = ({ navigation }) => {
                     backgroundColor={'transparent'}
                     isScreenFullWidth={false}
                     fontSize={14}
+                    textColor={'onBackground'}
                     style={{ paddingRight: 10, paddingTop: 0, alignSelf: 'flex-end', paddingBottom: 20 }}
                 />
             </View>
 
             <View>
-                <SectionSeparator label={I18n.t('QuickAccess')} />
-                <CustomButton
-                    label={I18n.t('CalendarScreen')}
-                    onPress={() => navigation.navigate(RouteConstants.CALENDAR_SCREEN)}
-                    backgroundColor={'secondary'}
-                />
-                <CustomButton
-                    label={I18n.t('NewsScreen')}
-                    onPress={() =>
-                        navigation.navigate(RouteConstants.NEWS_STACK_NAVIGATION as never, { screen: RouteConstants.NEWS_SCREEN } as never)
-                    }
-                    backgroundColor={'secondary'}
-                />
+                <Text style={styles.titleText}>{I18n.t('QuickAccess')}</Text>
+                <Row>
+                    <ShortcutCard
+                        marginRight={10}
+                        onPress={() => navigation.navigate(RouteConstants.CALENDAR_SCREEN)}
+                        label={I18n.t('CalendarScreen')}
+                        icon={ImageConstants.calendar}
+                    />
+                    <ShortcutCard
+                        marginLeft={10}
+                        onPress={() =>
+                            navigation.navigate(
+                                RouteConstants.NEWS_STACK_NAVIGATION as never,
+                                { screen: RouteConstants.NEWS_SCREEN } as never
+                            )
+                        }
+                        label={I18n.t('NewsScreen')}
+                        icon={ImageConstants.news}
+                    />
+                </Row>
             </View>
+
             <View />
         </View>
     );
@@ -133,13 +144,12 @@ const homeScreenStyle = (colors: any) =>
             right: -90,
             opacity: 0.4
         },
-        homeText: {
-            fontSize: 36,
+        titleText: {
             color: colors.onBackground,
+            marginLeft: 20,
             fontWeight: 'bold',
-            width: '100%',
-            paddingLeft: 20,
-            paddingRight: 20
+            fontSize: 20,
+            marginBottom: 10
         }
     });
 

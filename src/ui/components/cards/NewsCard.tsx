@@ -44,7 +44,7 @@ const NewsCard = ({ important, title, publishedDate, content, index, fromHomeScr
                         <ImageIcon
                             source={ImageConstants.news}
                             size={80}
-                            color={colors.onPrimary}
+                            color={colors.tertiary}
                         />
                     )}
                     <View style={styles.textBox}>
@@ -81,7 +81,7 @@ const newsCardStyle = (colors: any) =>
             paddingBottom: 5
         },
         newsCard: {
-            backgroundColor: colors.primary,
+            backgroundColor: colors.surface,
             padding: 10,
             borderRadius: 10,
             alignItems: 'flex-end',
@@ -95,16 +95,16 @@ const newsCardStyle = (colors: any) =>
             elevation: 1
         },
         titleText: {
-            color: colors.onPrimary,
+            color: colors.onSurface,
             fontWeight: 'bold',
             fontSize: 20
         },
         previewText: {
-            color: colors.onPrimary,
+            color: colors.onSurface,
             fontSize: 14
         },
         publishedDate: {
-            color: colors.onPrimary,
+            color: colors.tertiary,
             fontSize: 12,
             alignSelf: 'flex-end',
             marginTop: 5

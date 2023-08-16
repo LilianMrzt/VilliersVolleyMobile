@@ -17,6 +17,8 @@ export interface CustomTheme extends Theme {
         onBackground: string;
         borderOutline: string;
         onBorderOutline: string;
+        surface: string;
+        onSurface: string;
     };
 }
 declare module '@react-navigation/native' {

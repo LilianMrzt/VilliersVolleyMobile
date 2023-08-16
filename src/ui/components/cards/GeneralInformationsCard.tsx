@@ -24,7 +24,7 @@ const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, con
                     <ImageIcon
                         source={ImageConstants.information}
                         size={60}
-                        color={colors.onPrimary}
+                        color={colors.tertiary}
                         style={{ marginRight: 15 }}
                     />
                     <Text style={styles.titleText}>{title}</Text>
@@ -80,7 +80,7 @@ const generalInformationsCardStyle = (colors: any) =>
             paddingBottom: 5
         },
         touchable: {
-            backgroundColor: colors.primary,
+            backgroundColor: colors.surface,
             padding: 10,
             borderRadius: 10,
             alignItems: 'flex-end',
@@ -94,13 +94,13 @@ const generalInformationsCardStyle = (colors: any) =>
             elevation: 1
         },
         titleText: {
-            color: colors.onPrimary,
+            color: colors.onSurface,
             fontWeight: 'bold',
             fontSize: 20,
             flex: 1
         },
         modalTitleText: {
-            color: colors.onBackground,
+            color: colors.onSurface,
             fontWeight: 'bold',
             fontSize: 20,
             marginBottom: 10
@@ -108,12 +108,12 @@ const generalInformationsCardStyle = (colors: any) =>
         modalView: {
             width: Size.getScreenWidth() - 40,
             maxHeight: Size.getScreenHeight() - 140,
-            backgroundColor: colors.background,
+            backgroundColor: colors.surface,
             borderRadius: 10,
             alignItems: 'center'
         },
         modalText: {
-            color: colors.onBackground
+            color: colors.onSurface
         },
         modalContent: {
             padding: 20,

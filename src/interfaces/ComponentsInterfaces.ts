@@ -38,4 +38,22 @@ export interface RowInterface {
     style?: any;
     justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
     alignItems?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+    flex?: number;
+}
+
+export interface CustomHeaderCardInterface {
+    label: string;
+    icon?: ImageSourcePropType;
+    onPress?: () => void;
+    height?: number;
+    borderRadius?: number;
+    marginBottom?: number;
+}
+
+export interface ShortcutCardInterface {
+    marginLeft?: number;
+    marginRight?: number;
+    onPress: () => void;
+    label: string;
+    icon: ImageSourcePropType;
 }

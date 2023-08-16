@@ -1,6 +1,5 @@
 import ImageIcon from '@components/common/ImageIcon';
 import CustomDrawer from '@components/customDrawer/CustomDrawer';
-import HeaderLeft from '@components/header/HeaderLeft';
 import NewsStackNavigation from '@navigation/NewsStackNavigation';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from '@react-navigation/native';
@@ -31,7 +30,7 @@ const DrawerNavigation = () => {
                     backgroundColor: colors.background,
                     elevation: 0
                 },
-                headerLeft: () => <HeaderLeft />
+                headerShown: false
             }}
         >
             <Drawer.Screen
@@ -44,8 +43,7 @@ const DrawerNavigation = () => {
                             size={size}
                             color={color}
                         />
-                    ),
-                    title: I18n.t('HomeScreen')
+                    )
                 }}
             />
 
@@ -75,8 +73,7 @@ const DrawerNavigation = () => {
                             color={color}
                         />
                     ),
-                    title: I18n.t('NewsScreen'),
-                    headerShown: false
+                    title: I18n.t('NewsScreen')
                 }}
             />
 

@@ -19,9 +19,9 @@ const CalendarBottomSheet: React.FC<CalendarBottomSheetInterface> = ({ activeDat
 
     const snapPoints = useMemo(() => {
         if (isSameMonthAndYear) {
-            return [Size.getWindowContentHeight() * 0.325, '70%'];
+            return [Size.getWindowContentHeight() * 0.32, '70%'];
         } else {
-            return [Size.getWindowContentHeight() * 0.325];
+            return [Size.getWindowContentHeight() * 0.32];
         }
     }, [isSameMonthAndYear]);
 

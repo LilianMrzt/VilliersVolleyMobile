@@ -1,4 +1,3 @@
-import HeaderLeft from '@components/header/HeaderLeft';
 import { useTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import NewsArticleScreen from '@ui/views/NewsArticleScreen';
@@ -28,7 +27,7 @@ const NewsStackNavigation = ({ route, navigation }) => {
         <Stack.Navigator
             initialRouteName={RouteConstants.NEWS_SCREEN}
             screenOptions={{
-                headerShown: true,
+                headerShown: false,
                 headerTintColor: colors.onBackground,
                 headerStyle: {
                     backgroundColor: colors.background,
@@ -40,8 +39,6 @@ const NewsStackNavigation = ({ route, navigation }) => {
                 name={RouteConstants.NEWS_SCREEN}
                 component={NewsScreen}
                 options={{
-                    // Set header button for opening the drawer
-                    headerLeft: () => <HeaderLeft />,
                     title: I18n.t('NewsScreen')
                 }}
             />
@@ -49,8 +46,7 @@ const NewsStackNavigation = ({ route, navigation }) => {
                 name={RouteConstants.NEWS_ARTICLE_SCREEN}
                 component={NewsArticleScreen}
                 options={{
-                    title: I18n.t('NewsScreen'),
-                    headerShown: false
+                    title: I18n.t('NewsScreen')
                 }}
             />
         </Stack.Navigator>

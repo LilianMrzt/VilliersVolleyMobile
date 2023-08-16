@@ -1,24 +1,21 @@
+import CustomHeaderCard from '@components/cards/CustomHeaderCard';
+import ImageConstants from '@constants/ImageConstants';
 import RouteConstants from '@constants/RouteConstants';
 import { useTheme } from '@react-navigation/native';
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const NewsArticleScreen = ({ route, navigation }) => {
     const { colors } = useTheme();
     const { title, content } = route.params;
 
     return (
-        <View style={{ flex: 1, padding: 20 }}>
-            <Button
-                title={'aa'}
-                onPress={() =>
-                    navigation.reset({
-                        index: 0,
-                        routes: [{ name: RouteConstants.NEWS_STACK_NAVIGATION }]
-                    })
-                }
+        <View style={{ flex: 1 }}>
+            <CustomHeaderCard
+                label={title}
+                icon={ImageConstants.backArrow}
+                onPress={() => navigation.navigate(RouteConstants.NEWS_SCREEN)}
             />
-            <Text style={{ color: colors.onBackground }}>{title}</Text>
             <Text style={{ color: colors.onBackground }}>{content}</Text>
         </View>
     );

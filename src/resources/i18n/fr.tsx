@@ -37,5 +37,7 @@ export default {
     QuickAccess: 'Accès Rapide',
     Informations: 'Informations',
     KnowMore: 'En savoir plus +',
-    Welcome: 'Bienvenue'
+    Welcome: 'Bienvenue',
+    VilliersVolley: 'Villiers Volley',
+    ClubName: 'ES Villiers-sur-Marne Volleyball'
 };
