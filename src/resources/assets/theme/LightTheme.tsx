@@ -5,9 +5,9 @@ const LightTheme: CustomTheme = {
     colors: {
         primary: '#bce9ff',
         onPrimary: '#001f2a',
-        secondary: '#fcfc96',
+        secondary: '#ffe177',
         onSecondary: '#1d1d00',
-        tertiary: '#00677c',
+        tertiary: '#042384',
         onTertiary: '#ffffff',
         error: '#ba1a1a',
         onError: '#ffffff',

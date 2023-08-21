@@ -1,6 +1,6 @@
 import CustomHeaderCard from '@components/cards/CustomHeaderCard';
 import ImageConstants from '@constants/ImageConstants';
-import RouteConstants from '@constants/RouteConstants';
+import RouteConstants from '@constants/routes/RouteConstants';
 import { useTheme } from '@react-navigation/native';
 import React from 'react';
 import { Text, View } from 'react-native';

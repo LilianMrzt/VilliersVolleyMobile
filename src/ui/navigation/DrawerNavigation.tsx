@@ -1,5 +1,6 @@
 import ImageIcon from '@components/common/ImageIcon';
 import CustomDrawer from '@components/customDrawer/CustomDrawer';
+import RouteConstants from '@constants/routes/RouteConstants';
 import NewsStackNavigation from '@navigation/NewsStackNavigation';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from '@react-navigation/native';
@@ -10,7 +11,6 @@ import SettingsScreen from '@ui/views/SettingsScreen';
 import I18n from '@utils/I18n';
 import React from 'react';
 import ImageConstants from '../../constants/ImageConstants';
-import RouteConstants from '../../constants/RouteConstants';
 
 const Drawer = createDrawerNavigator();
 

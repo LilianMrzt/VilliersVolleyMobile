@@ -6,7 +6,7 @@ import ShortcutCard from '@components/cards/ShortcutCard';
 import CustomButton from '@components/common/CustomButton';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import RouteConstants from '@constants/RouteConstants';
+import RouteConstants from '@constants/routes/RouteConstants';
 import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsInterfaces';
 import { useTheme } from '@react-navigation/native';
 import { dateUtils } from '@utils/DateUtils';
@@ -22,8 +22,6 @@ const HomeScreen = ({ navigation }) => {
 
     const [homeScreenArticles, setHomeScreenArticles] = useState([]);
     const [generalInformations, setGeneralInformations] = useState<GeneralInformationsInterfaces>();
-
-    //console.log(navigation)
 
     useEffect(() => {
         fetchHomeScreenArticles();
@@ -79,6 +77,8 @@ const HomeScreen = ({ navigation }) => {
                     title={generalInformations?.title}
                     content={generalInformations?.content}
                 />
+
+                <Text style={styles.titleText}>{I18n.t('News')}</Text>
                 {homeScreenArticles.map((article, index) => (
                     <NewsCard
                         key={index}
@@ -105,15 +105,15 @@ const HomeScreen = ({ navigation }) => {
 
             <View>
                 <Text style={styles.titleText}>{I18n.t('QuickAccess')}</Text>
-                <Row>
+                <Row style={{ paddingTop: 5 }}>
                     <ShortcutCard
-                        marginRight={10}
+                        paddingRight={10}
                         onPress={() => navigation.navigate(RouteConstants.CALENDAR_SCREEN)}
                         label={I18n.t('CalendarScreen')}
                         icon={ImageConstants.calendar}
                     />
                     <ShortcutCard
-                        marginLeft={10}
+                        paddingLeft={10}
                         onPress={() =>
                             navigation.navigate(
                                 RouteConstants.NEWS_STACK_NAVIGATION as never,
@@ -149,7 +149,7 @@ const homeScreenStyle = (colors: any) =>
             marginLeft: 20,
             fontWeight: 'bold',
             fontSize: 20,
-            marginBottom: 10
+            marginBottom: 0
         }
     });
 

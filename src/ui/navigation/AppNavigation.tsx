@@ -1,8 +1,8 @@
+import RouteConstants from '@constants/routes/RouteConstants';
 import DrawerNavigation from '@navigation/DrawerNavigation';
 import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from '@ui/views/SplashScreen';
 import React from 'react';
-import RouteConstants from '../../constants/RouteConstants';
 
 const Stack = createStackNavigator();
 

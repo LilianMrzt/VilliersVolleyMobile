@@ -36,6 +36,7 @@ const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, con
                         setIsVisible(true);
                     }}
                     backgroundColor={'transparent'}
+                    textColor={'tertiary'}
                     isScreenFullWidth={false}
                     fontSize={14}
                     style={{ paddingRight: 0, paddingBottom: 0 }}
@@ -76,8 +77,8 @@ const generalInformationsCardStyle = (colors: any) =>
         container: {
             width: Size.getScreenWidth(),
             padding: 20,
-            paddingTop: 0,
-            paddingBottom: 5
+            paddingTop: 5,
+            paddingBottom: 20
         },
         touchable: {
             backgroundColor: colors.surface,

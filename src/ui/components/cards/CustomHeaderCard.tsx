@@ -2,7 +2,7 @@ import ImageButton from '@components/common/ImageButton';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
 import ImageConstants from '@constants/ImageConstants';
-import RouteConstants from '@constants/RouteConstants';
+import RouteConstants from '@constants/routes/RouteConstants';
 import { CustomHeaderCardInterface } from '@interfaces/ComponentsInterfaces';
 import { useNavigation, useRoute, useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
@@ -44,13 +44,13 @@ const CustomHeaderCard: FC<CustomHeaderCardInterface> = ({ label, icon, onPress,
 
                 {route.name === RouteConstants.HOME_SCREEN ? (
                     <ImageIcon
-                        source={ImageConstants.volleyballBall2}
+                        source={ImageConstants.volleyballBall}
                         size={50}
                         color={colors.tertiary}
                     />
                 ) : (
                     <ImageButton
-                        source={ImageConstants.volleyballBall2}
+                        source={ImageConstants.volleyballBall}
                         size={height ? height * 0.66 : 50}
                         color={colors.tertiary}
                         onPress={() =>

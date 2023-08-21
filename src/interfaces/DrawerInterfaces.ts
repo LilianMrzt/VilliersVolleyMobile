@@ -11,6 +11,6 @@ export interface ImageButtonInterface {
 export interface ImageIconInterface {
     source: ImageSourcePropType;
     size: DimensionValue;
-    color: ColorValue;
+    color?: ColorValue;
     style?: ImageStyle;
 }

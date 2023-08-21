@@ -12,9 +12,12 @@ export default {
     team: require('@assets/images/team.png'),
     volleyballBall: require('@assets/images/volleyballBall.png'),
     volleyballBall2: require('@assets/images/volleyballBall2.png'),
-    information: require('@assets/images/information.png'),
+    information: require('@assets/images/info.png'),
     news: require('@assets/images/news.png'),
     backArrow: require('@assets/images/backArrow.png'),
     forwardArrow: require('@assets/images/forwardArrow.png'),
-    menu: require('@assets/images/menu.png')
+    menu: require('@assets/images/menu.png'),
+    tournament: require('@assets/images/tournament.png'),
+    newspaper: require('@assets/images/newspaper.png'),
+    shortcutBackDesign: require('@assets/images/shortcutBackDesign.png')
 };

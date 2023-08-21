@@ -32,11 +32,11 @@ export default {
     Unavailable: 'Indisponible',
     Reason: 'Raison',
 
-    LastNews: 'Dernières actualités',
-    SeeMoreNews: "Voir plus d'actualités +",
+    News: 'Actualités',
+    SeeMoreNews: "Voir plus d'actualités",
     QuickAccess: 'Accès Rapide',
     Informations: 'Informations',
-    KnowMore: 'En savoir plus +',
+    KnowMore: 'En savoir plus',
     Welcome: 'Bienvenue',
     VilliersVolley: 'Villiers Volley',
     ClubName: 'ES Villiers-sur-Marne Volleyball'

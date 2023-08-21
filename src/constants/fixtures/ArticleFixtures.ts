@@ -38,7 +38,7 @@ export const ArticleFixtures = [
     {
         id: 4,
         attributes: {
-            title: 'Article 4',
+            title: 'Seniors Féminines Régionale',
             createdAt: '2023-08-14T20:27:32.939Z',
             updatedAt: '2023-08-14T20:27:38.714Z',
             publishedAt: '2023-08-14T20:27:38.712Z',
@@ -50,7 +50,7 @@ export const ArticleFixtures = [
     {
         id: 5,
         attributes: {
-            title: 'Article 5',
+            title: 'Tournoi 14/09',
             createdAt: '2023-08-14T20:27:41.427Z',
             updatedAt: '2023-08-14T20:27:46.517Z',
             publishedAt: '2023-08-14T20:27:46.516Z',
@@ -62,7 +62,7 @@ export const ArticleFixtures = [
     {
         id: 6,
         attributes: {
-            title: 'Article 6',
+            title: 'Tarifs 2023-2024',
             createdAt: '2023-08-14T20:27:52.694Z',
             updatedAt: '2023-08-14T20:27:56.729Z',
             publishedAt: '2023-08-14T20:27:56.727Z',

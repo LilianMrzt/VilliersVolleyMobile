@@ -5,7 +5,7 @@ export interface CustomButtonInterface {
     label: string;
     onPress: () => void;
     backgroundColor?: 'primary' | 'secondary' | 'tertiary' | 'transparent';
-    textColor?: 'onPrimary' | 'onSecondary' | 'onTertiary' | 'onBackground';
+    textColor?: 'onPrimary' | 'onSecondary' | 'onTertiary' | 'onBackground' | 'primary' | 'secondary' | 'tertiary';
     fontWeight?: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
     isScreenFullWidth?: boolean;
     icon?: ImageSourcePropType;
@@ -51,8 +51,8 @@ export interface CustomHeaderCardInterface {
 }
 
 export interface ShortcutCardInterface {
-    marginLeft?: number;
-    marginRight?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
     onPress: () => void;
     label: string;
     icon: ImageSourcePropType;

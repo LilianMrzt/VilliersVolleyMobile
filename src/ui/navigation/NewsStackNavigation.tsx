@@ -1,10 +1,10 @@
+import RouteConstants from '@constants/routes/RouteConstants';
 import { useTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import NewsArticleScreen from '@ui/views/NewsArticleScreen';
 import NewsScreen from '@ui/views/NewsScreen';
 import I18n from '@utils/I18n';
 import React, { useEffect } from 'react';
-import RouteConstants from '../../constants/RouteConstants';
 
 const Stack = createStackNavigator();
 
