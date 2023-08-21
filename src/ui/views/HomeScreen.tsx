@@ -9,11 +9,13 @@ import Row from '@components/common/Row';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsInterfaces';
 import { useTheme } from '@react-navigation/native';
+import { changeRoute } from '@services/redux/actions/RouteActions';
 import { dateUtils } from '@utils/DateUtils';
 import I18n from '@utils/I18n';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useDispatch } from 'react-redux';
 import ImageConstants from '../../constants/ImageConstants';
 
 const HomeScreen = ({ navigation }) => {
@@ -51,6 +53,8 @@ const HomeScreen = ({ navigation }) => {
     };
 
     const insets = useSafeAreaInsets();
+
+    const dispatch = useDispatch();
 
     return (
         <View
@@ -92,9 +96,10 @@ const HomeScreen = ({ navigation }) => {
                 ))}
                 <CustomButton
                     label={I18n.t('SeeMoreNews')}
-                    onPress={() =>
-                        navigation.navigate(RouteConstants.NEWS_STACK_NAVIGATION as never, { screen: RouteConstants.NEWS_SCREEN } as never)
-                    }
+                    onPress={() => {
+                        dispatch(changeRoute(RouteConstants.NEWS_STACK_NAVIGATION));
+                        navigation.navigate(RouteConstants.NEWS_STACK_NAVIGATION as never, { screen: RouteConstants.NEWS_SCREEN } as never);
+                    }}
                     backgroundColor={'transparent'}
                     isScreenFullWidth={false}
                     fontSize={14}
@@ -108,18 +113,22 @@ const HomeScreen = ({ navigation }) => {
                 <Row style={{ paddingTop: 5 }}>
                     <ShortcutCard
                         paddingRight={10}
-                        onPress={() => navigation.navigate(RouteConstants.CALENDAR_SCREEN)}
+                        onPress={() => {
+                            dispatch(changeRoute(RouteConstants.CALENDAR_SCREEN));
+                            navigation.navigate(RouteConstants.CALENDAR_SCREEN);
+                        }}
                         label={I18n.t('CalendarScreen')}
                         icon={ImageConstants.calendar}
                     />
                     <ShortcutCard
                         paddingLeft={10}
-                        onPress={() =>
+                        onPress={() => {
+                            dispatch(changeRoute(RouteConstants.NEWS_STACK_NAVIGATION));
                             navigation.navigate(
                                 RouteConstants.NEWS_STACK_NAVIGATION as never,
                                 { screen: RouteConstants.NEWS_SCREEN } as never
-                            )
-                        }
+                            );
+                        }}
                         label={I18n.t('NewsScreen')}
                         icon={ImageConstants.news}
                     />

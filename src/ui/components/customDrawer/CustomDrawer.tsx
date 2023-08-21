@@ -1,16 +1,20 @@
 import ImageButton from '@components/common/ImageButton';
-import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import SectionSeparator from '@components/common/SectionSeparator';
+import CustomDrawerItem from '@components/customDrawer/CustomDrawerItem';
+import { DrawerBottomRoutes, DrawerTopRoutes } from '@constants/routes/DrawerRoutes';
+import RouteConstants from '@constants/routes/RouteConstants';
+import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { useNavigation, useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ImageConstants from '../../../constants/ImageConstants';
-import RouteConstants from '../../../constants/RouteConstants';
 
 const CustomDrawer = (props) => {
     const { colors } = useTheme();
     const styles = customDrawerStyle(colors);
-
+    const insets = useSafeAreaInsets();
     const navigation = useNavigation();
 
     return (
@@ -28,8 +32,31 @@ const CustomDrawer = (props) => {
                     />
                     <Text style={styles.userInfos}>FirstName LastName</Text>
                 </View>
-                <View style={styles.drawerItems}>
-                    <DrawerItemList {...props} />
+
+                <View style={{ justifyContent: 'space-between', flex: 1 }}>
+                    <View>
+                        {DrawerTopRoutes.map((route, index) => (
+                            <CustomDrawerItem
+                                key={index}
+                                label={route.label}
+                                icon={route.image}
+                                route={route.route}
+                            />
+                        ))}
+                    </View>
+
+                    <View style={{ marginBottom: insets.bottom }}>
+                        <SectionSeparator />
+
+                        {DrawerBottomRoutes.map((route, index) => (
+                            <CustomDrawerItem
+                                key={index}
+                                label={route.label}
+                                icon={route.image}
+                                route={route.route}
+                            />
+                        ))}
+                    </View>
                 </View>
             </DrawerContentScrollView>
         </View>
@@ -43,11 +70,12 @@ const customDrawerStyle = (colors: any) =>
             backgroundColor: colors.background
         },
         headerBackground: {
-            backgroundColor: colors.background
+            backgroundColor: colors.background,
+            flex: 1
         },
         drawerHeader: {
             padding: 20,
-            flex: 1,
+            //flex: 1,
             backgroundColor: colors.background,
             justifyContent: 'center',
             alignItems: 'center',
@@ -55,7 +83,7 @@ const customDrawerStyle = (colors: any) =>
             marginTop: 20
         },
         drawerItems: {
-            flex: 1,
+            //flex: 1,
             backgroundColor: colors.background
         },
         userInfos: {

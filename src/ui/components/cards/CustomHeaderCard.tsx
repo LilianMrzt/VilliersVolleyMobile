@@ -5,9 +5,11 @@ import ImageConstants from '@constants/ImageConstants';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { CustomHeaderCardInterface } from '@interfaces/ComponentsInterfaces';
 import { useNavigation, useRoute, useTheme } from '@react-navigation/native';
+import { changeRoute } from '@services/redux/actions/RouteActions';
 import Size from '@utils/Size';
 import React, { FC } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 const CustomHeaderCard: FC<CustomHeaderCardInterface> = ({ label, icon, onPress, height, borderRadius, marginBottom = 10 }) => {
     const { colors } = useTheme();
@@ -15,6 +17,7 @@ const CustomHeaderCard: FC<CustomHeaderCardInterface> = ({ label, icon, onPress,
 
     const navigation = useNavigation<any>();
     const route = useRoute();
+    const dispatch = useDispatch();
 
     return (
         <View
@@ -53,12 +56,13 @@ const CustomHeaderCard: FC<CustomHeaderCardInterface> = ({ label, icon, onPress,
                         source={ImageConstants.volleyballBall}
                         size={height ? height * 0.66 : 50}
                         color={colors.tertiary}
-                        onPress={() =>
+                        onPress={() => {
+                            dispatch(changeRoute(RouteConstants.HOME_SCREEN));
                             navigation.reset({
                                 index: 0,
                                 routes: [{ name: RouteConstants.HOME_SCREEN }]
-                            })
-                        }
+                            });
+                        }}
                     />
                 )}
             </Row>
@@ -85,7 +89,8 @@ const homeScreenHeaderCardStyle = (colors: any) =>
             color: colors.onSurface,
             fontWeight: 'bold',
             paddingLeft: 15,
-            paddingRight: 20
+            paddingRight: 20,
+            flex: 1
         },
         text: {
             fontSize: 16,
@@ -94,7 +99,7 @@ const homeScreenHeaderCardStyle = (colors: any) =>
             paddingRight: 20
         },
         leftButton: {
-            borderWidth: 1,
+            borderWidth: 2,
             borderRadius: 10,
             padding: 3,
             borderColor: colors.onSurface
