@@ -1,6 +1,4 @@
 export default {
-    CURRENT_ROUTE: 'CURRENT_ROUTE',
-
     DRAWER_NAVIGATION: 'DrawerNavigation',
     SPLASH_SCREEN: 'SplashScreen',
     NEWS_STACK_NAVIGATION: 'NewsStackNavigation',
