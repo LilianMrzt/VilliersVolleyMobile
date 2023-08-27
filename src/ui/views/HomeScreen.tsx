@@ -82,10 +82,7 @@ const HomeScreen = ({ navigation }) => {
                 {homeScreenArticles.map((article, index) => (
                     <NewsCard
                         key={index}
-                        title={article.attributes.title}
-                        publishedDate={dateUtils.formatDate(article.attributes.publishedAt)}
-                        important={article.attributes.important}
-                        content={article.attributes.content}
+                        article={article}
                         index={index}
                         fromHomeScreen={true}
                     />

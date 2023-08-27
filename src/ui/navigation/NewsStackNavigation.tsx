@@ -16,12 +16,11 @@ const NewsStackNavigation = ({ route, navigation }) => {
             navigation.navigate(
                 RouteConstants.NEWS_ARTICLE_SCREEN as never,
                 {
-                    title: route.params.title,
-                    content: route.params.content
+                    article: route.params.article
                 } as never
             );
         }
-    }, [route && route.params && route.params.title, route && route.params && route.params.fromHomeScreen]);
+    }, [route && route.params && route.params.article, route && route.params && route.params.fromHomeScreen]);
 
     return (
         <Stack.Navigator

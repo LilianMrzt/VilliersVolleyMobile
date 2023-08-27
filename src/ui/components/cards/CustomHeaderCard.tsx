@@ -21,9 +21,9 @@ const CustomHeaderCard: FC<CustomHeaderCardInterface> = ({ label, icon, onPress,
             style={[
                 styles.container,
                 height && { height: height + StatusBar.currentHeight },
-                borderRadius && {
-                    borderBottomRightRadius: borderRadius,
-                    borderBottomLeftRadius: borderRadius
+                {
+                    borderBottomRightRadius: borderRadius ? borderRadius : 40,
+                    borderBottomLeftRadius: borderRadius ? borderRadius : 40
                 },
                 marginBottom && {
                     marginBottom: marginBottom
@@ -72,8 +72,6 @@ const homeScreenHeaderCardStyle = (colors: any) =>
             width: Size.getScreenWidth(),
             height: 120 + StatusBar.currentHeight,
             backgroundColor: colors.surface,
-            borderBottomLeftRadius: 40,
-            borderBottomRightRadius: 40,
             paddingTop: StatusBar.currentHeight,
             elevation: 1,
             paddingLeft: 20,

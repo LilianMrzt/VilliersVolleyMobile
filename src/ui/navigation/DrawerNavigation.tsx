@@ -43,7 +43,8 @@ const DrawerNavigation = () => {
                             size={size}
                             color={color}
                         />
-                    )
+                    ),
+                    title: I18n.t('HomeScreen')
                 }}
             />
 

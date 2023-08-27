@@ -3,11 +3,12 @@ import Row from '@components/common/Row';
 import ImageConstants from '@constants/ImageConstants';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { useNavigation, useTheme } from '@react-navigation/native';
+import { dateUtils } from '@utils/DateUtils';
 import Size from '@utils/Size';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const NewsCard = ({ important, title, publishedDate, content, index, fromHomeScreen = false }) => {
+const NewsCard = ({ article, index, fromHomeScreen = false }) => {
     const { colors } = useTheme();
     const styles = newsCardStyle(colors);
 
@@ -22,8 +23,7 @@ const NewsCard = ({ important, title, publishedDate, content, index, fromHomeScr
                         navigation.navigate(
                             RouteConstants.NEWS_STACK_NAVIGATION as never,
                             {
-                                title: title,
-                                content: content,
+                                article: article,
                                 fromHomeScreen: fromHomeScreen
                             } as never
                         );
@@ -31,8 +31,7 @@ const NewsCard = ({ important, title, publishedDate, content, index, fromHomeScr
                         navigation.navigate(
                             RouteConstants.NEWS_ARTICLE_SCREEN as never,
                             {
-                                title: title,
-                                content: content,
+                                article: article,
                                 fromHomeScreen: fromHomeScreen
                             } as never
                         );
@@ -41,9 +40,13 @@ const NewsCard = ({ important, title, publishedDate, content, index, fromHomeScr
             >
                 <Row alignItems={'flex-start'}>
                     <ImageIcon
-                        source={important && index === 0 ? ImageConstants.tournament : ImageConstants.newspaper}
-                        size={important && index === 0 ? 60 : 30}
-                        color={!important && colors.tertiary}
+                        source={
+                            article.attributes.important && index === 0 && article.attributes.mainImage.data
+                                ? { uri: article.attributes.mainImage.data.attributes.url }
+                                : ImageConstants.newspaper
+                        }
+                        size={article.attributes.important && index === 0 ? 60 : 30}
+                        color={!article.attributes.important && colors.tertiary}
                     />
 
                     <View style={styles.textBox}>
@@ -51,19 +54,19 @@ const NewsCard = ({ important, title, publishedDate, content, index, fromHomeScr
                             numberOfLines={1}
                             style={styles.titleText}
                         >
-                            {title}
+                            {article.attributes.title}
                         </Text>
-                        {important && index === 0 && (
+                        {article.attributes.important && index === 0 && (
                             <View>
                                 <Text
                                     numberOfLines={2}
                                     style={styles.previewText}
                                 >
-                                    {content}
+                                    {article.attributes.description}
                                 </Text>
                             </View>
                         )}
-                        <Text style={styles.publishedDate}>{publishedDate}</Text>
+                        <Text style={styles.publishedDate}>{dateUtils.formatDate(article.attributes.publishedAt)}</Text>
                     </View>
                 </Row>
             </TouchableOpacity>
