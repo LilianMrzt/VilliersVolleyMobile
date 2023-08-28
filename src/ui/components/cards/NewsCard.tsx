@@ -41,7 +41,9 @@ const NewsCard = ({ article, index, fromHomeScreen = false }) => {
                 <Row alignItems={'flex-start'}>
                     <ImageIcon
                         source={
-                            article.attributes.important && index === 0 && article.attributes.mainImage.data
+                            article.attributes.important &&
+                            index === 0 &&
+                            article.attributes.mainImage.data
                                 ? { uri: article.attributes.mainImage.data.attributes.url }
                                 : ImageConstants.newspaper
                         }
@@ -66,7 +68,9 @@ const NewsCard = ({ article, index, fromHomeScreen = false }) => {
                                 </Text>
                             </View>
                         )}
-                        <Text style={styles.publishedDate}>{dateUtils.formatDate(article.attributes.publishedAt)}</Text>
+                        <Text style={styles.publishedDate}>
+                            {dateUtils.formatDate(article.attributes.publishedAt)}
+                        </Text>
                     </View>
                 </Row>
             </TouchableOpacity>

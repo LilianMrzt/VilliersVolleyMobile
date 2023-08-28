@@ -6,7 +6,8 @@ export default {
     getArticles() {
         return ArticleFixtures.sort((a, b) => {
             return (
-                dateUtils.extractConcatenatedDates(b.attributes.publishedAt) - dateUtils.extractConcatenatedDates(a.attributes.publishedAt)
+                dateUtils.extractConcatenatedDates(b.attributes.publishedAt) -
+                dateUtils.extractConcatenatedDates(a.attributes.publishedAt)
             );
         });
     },

@@ -8,7 +8,13 @@ import Size from '@utils/Size';
 import React, { FC } from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const ShortcutCard: FC<ShortcutCardInterface> = ({ paddingLeft = 20, paddingRight = 20, onPress, label, icon }) => {
+const ShortcutCard: FC<ShortcutCardInterface> = ({
+    paddingLeft = 20,
+    paddingRight = 20,
+    onPress,
+    label,
+    icon
+}) => {
     const { colors } = useTheme();
     const styles = shortcutCardStyle(colors);
 

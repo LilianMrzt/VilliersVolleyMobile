@@ -9,11 +9,16 @@ import Size from '@utils/Size';
 import React, { useMemo, useRef } from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-const CalendarBottomSheet: React.FC<CalendarBottomSheetInterface> = ({ activeDate, activeMonth, activeYear }) => {
+const CalendarBottomSheet: React.FC<CalendarBottomSheetInterface> = ({
+    activeDate,
+    activeMonth,
+    activeYear
+}) => {
     const { colors } = useTheme();
     const styles = bottomSheetViewStyle(colors);
 
-    const isSameMonthAndYear = activeMonth === activeDate.getMonth() && activeYear === activeDate.getFullYear();
+    const isSameMonthAndYear =
+        activeMonth === activeDate.getMonth() && activeYear === activeDate.getFullYear();
 
     const sheetRef = useRef<BottomSheet>(null);
 
@@ -37,15 +42,17 @@ const CalendarBottomSheet: React.FC<CalendarBottomSheetInterface> = ({ activeDat
                 style={styles.contentContainer}
                 contentContainerStyle={styles.contentContainer}
             >
-                {activeMonth === activeDate.getMonth() && activeYear === activeDate.getFullYear() && (
-                    <>
-                        <Text style={styles.dateText}>
-                            {dateUtils.getDayLabel(activeDate.getDay())} {activeDate.getDate()}{' '}
-                            {dateUtils.getMonthLabel(activeDate.getMonth())} {activeDate.getFullYear()}
-                        </Text>
-                        <SectionSeparator />
-                    </>
-                )}
+                {activeMonth === activeDate.getMonth() &&
+                    activeYear === activeDate.getFullYear() && (
+                        <>
+                            <Text style={styles.dateText}>
+                                {dateUtils.getDayLabel(activeDate.getDay())} {activeDate.getDate()}{' '}
+                                {dateUtils.getMonthLabel(activeDate.getMonth())}{' '}
+                                {activeDate.getFullYear()}
+                            </Text>
+                            <SectionSeparator />
+                        </>
+                    )}
 
                 <TerrainInformations
                     terrains={TerrainFixtures.filter((terrain) => {

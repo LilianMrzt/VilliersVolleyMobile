@@ -28,7 +28,11 @@ const CustomInput: FC<CustomInputInterface> = ({
                     styles.input,
                     {
                         backgroundColor: colors[backgroundColor],
-                        color: colors[`on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`]
+                        color: colors[
+                            `on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(
+                                1
+                            )}`
+                        ]
                     },
                     border && { borderWidth: 1 },
                     backgroundColor !== 'background' && styles.containerShadows

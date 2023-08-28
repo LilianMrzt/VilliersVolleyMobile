@@ -3,7 +3,11 @@ import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 const ColoredDot: FC<ColoredDotInterface> = ({ color, isCurrentMonth }) => {
-    return <View style={[styles.dot, { backgroundColor: color }, !isCurrentMonth && { opacity: 0.2 }]} />;
+    return (
+        <View
+            style={[styles.dot, { backgroundColor: color }, !isCurrentMonth && { opacity: 0.2 }]}
+        />
+    );
 };
 
 const styles = StyleSheet.create({

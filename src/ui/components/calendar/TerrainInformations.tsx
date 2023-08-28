@@ -6,7 +6,12 @@ import I18n from '@utils/I18n';
 import React, { Fragment } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const TerrainInformations: React.FC<TerrainInformationsInterface> = ({ terrains, activeDate, activeMonth, activeYear }) => {
+const TerrainInformations: React.FC<TerrainInformationsInterface> = ({
+    terrains,
+    activeDate,
+    activeMonth,
+    activeYear
+}) => {
     const { colors } = useTheme();
     const styles = terrainInformationsStyle(colors);
 
@@ -33,7 +38,9 @@ const TerrainInformations: React.FC<TerrainInformationsInterface> = ({ terrains,
             ) : (
                 <View>
                     <Text style={styles.noTraining}>
-                        {activeMonth === activeDate.getMonth() && activeYear === activeDate.getFullYear() && I18n.t('NoAvailableTerrain')}
+                        {activeMonth === activeDate.getMonth() &&
+                            activeYear === activeDate.getFullYear() &&
+                            I18n.t('NoAvailableTerrain')}
                     </Text>
                 </View>
             )}

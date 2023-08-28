@@ -83,8 +83,10 @@ const MonthlyCalendar = () => {
                             return (
                                 terrainDate.getDate() === item.day &&
                                 item.isNextMonth === true &&
-                                terrainDate.getMonth() === (activeMonth === 11 ? 0 : activeMonth + 1) &&
-                                terrainDate.getFullYear() === (activeMonth === 11 ? activeYear + 1 : activeYear)
+                                terrainDate.getMonth() ===
+                                    (activeMonth === 11 ? 0 : activeMonth + 1) &&
+                                terrainDate.getFullYear() ===
+                                    (activeMonth === 11 ? activeYear + 1 : activeYear)
                             );
                         });
                     } else if (item.isPreviousMonth) {
@@ -93,8 +95,10 @@ const MonthlyCalendar = () => {
                             return (
                                 terrainDate.getDate() === item.day &&
                                 item.isPreviousMonth === true &&
-                                terrainDate.getMonth() === (activeMonth === 0 ? 11 : activeMonth - 1) &&
-                                terrainDate.getFullYear() === (activeMonth === 0 ? activeYear - 1 : activeYear)
+                                terrainDate.getMonth() ===
+                                    (activeMonth === 0 ? 11 : activeMonth - 1) &&
+                                terrainDate.getFullYear() ===
+                                    (activeMonth === 0 ? activeYear - 1 : activeYear)
                             );
                         });
                     }

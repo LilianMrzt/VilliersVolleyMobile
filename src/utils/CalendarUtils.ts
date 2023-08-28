@@ -21,7 +21,10 @@ function generateMonthMatrix(activeMonth, activeYear) {
     let maxDays = numberOfDays[month];
 
     // Vérifie si le mois est février et si l'année est bissextile
-    if (month === 1 && ((activeYear % 4 === 0 && activeYear % 100 !== 0) || activeYear % 400 === 0)) {
+    if (
+        month === 1 &&
+        ((activeYear % 4 === 0 && activeYear % 100 !== 0) || activeYear % 400 === 0)
+    ) {
         maxDays += 1;
     }
 
@@ -54,7 +57,10 @@ function generateMonthMatrix(activeMonth, activeYear) {
             // Ajouter les jours du mois précédent
             else if (row === 1 && col < (firstDay === 0 ? 6 : firstDay - 1)) {
                 matrix[row][col] = {
-                    day: prevMonthCounter > numberOfDays[prevMonth] ? prevMonthCounter++ - 6 : prevMonthCounter++ + 1,
+                    day:
+                        prevMonthCounter > numberOfDays[prevMonth]
+                            ? prevMonthCounter++ - 6
+                            : prevMonthCounter++ + 1,
                     isPreviousMonth: true
                 };
             } else {

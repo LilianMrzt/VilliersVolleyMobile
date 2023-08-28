@@ -67,7 +67,11 @@ const DayCard: React.FC<DayCardInterface> = ({
         .map((terrain) => (
             <ColoredDot
                 key={terrain.id}
-                color={terrain.attributes.ferme ? colors.border : TERRAIN_COLOR_MAP[terrain.attributes.terrain]}
+                color={
+                    terrain.attributes.ferme
+                        ? colors.border
+                        : TERRAIN_COLOR_MAP[terrain.attributes.terrain]
+                }
                 isCurrentMonth={item.isCurrentMonth}
             />
         ));
@@ -84,7 +88,12 @@ const DayCard: React.FC<DayCardInterface> = ({
             ]}
         >
             <View
-                style={item.day === currentDate.getDate() && activeMonth === currentDate.getMonth() && isCurrentYear && styles.currentDay}
+                style={
+                    item.day === currentDate.getDate() &&
+                    activeMonth === currentDate.getMonth() &&
+                    isCurrentYear &&
+                    styles.currentDay
+                }
             >
                 <Text
                     style={[

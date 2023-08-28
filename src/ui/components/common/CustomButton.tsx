@@ -32,7 +32,11 @@ const CustomButton: FC<CustomButtonInterface> = ({
                         borderColor:
                             backgroundColor === 'transparent'
                                 ? colors[borderColor]
-                                : colors[`on${borderColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
+                                : colors[
+                                      `on${borderColor
+                                          .charAt(0)
+                                          .toUpperCase()}${backgroundColor.slice(1)}`
+                                  ],
                         padding: fontSize / 2,
                         paddingLeft: fontSize,
                         paddingRight: fontSize
@@ -50,7 +54,11 @@ const CustomButton: FC<CustomButtonInterface> = ({
                                 tintColor:
                                     backgroundColor === 'transparent'
                                         ? colors[textColor]
-                                        : colors[`on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
+                                        : colors[
+                                              `on${backgroundColor
+                                                  .charAt(0)
+                                                  .toUpperCase()}${backgroundColor.slice(1)}`
+                                          ],
                                 width: iconSize,
                                 height: iconSize
                             }
@@ -62,7 +70,11 @@ const CustomButton: FC<CustomButtonInterface> = ({
                         color:
                             backgroundColor === 'transparent'
                                 ? colors[textColor]
-                                : colors[`on${backgroundColor.charAt(0).toUpperCase()}${backgroundColor.slice(1)}`],
+                                : colors[
+                                      `on${backgroundColor
+                                          .charAt(0)
+                                          .toUpperCase()}${backgroundColor.slice(1)}`
+                                  ],
                         fontWeight: fontWeight,
                         fontSize: fontSize
                     }}

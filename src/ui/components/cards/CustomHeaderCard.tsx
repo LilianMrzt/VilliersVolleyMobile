@@ -9,7 +9,14 @@ import Size from '@utils/Size';
 import React, { FC } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
-const CustomHeaderCard: FC<CustomHeaderCardInterface> = ({ label, icon, onPress, height, borderRadius, marginBottom = 10 }) => {
+const CustomHeaderCard: FC<CustomHeaderCardInterface> = ({
+    label,
+    icon,
+    onPress,
+    height,
+    borderRadius,
+    marginBottom = 10
+}) => {
     const { colors } = useTheme();
     const styles = homeScreenHeaderCardStyle(colors);
 

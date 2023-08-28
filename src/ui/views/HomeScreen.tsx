@@ -30,7 +30,9 @@ const HomeScreen = ({ navigation }) => {
 
     const fetchHomeScreenArticles = () => {
         const articles = Api.getArticles();
-        const importantArticles = articles.filter((article) => article.attributes.important === true);
+        const importantArticles = articles.filter(
+            (article) => article.attributes.important === true
+        );
 
         if (importantArticles.length > 0) {
             importantArticles.sort((a, b) => {
@@ -42,7 +44,9 @@ const HomeScreen = ({ navigation }) => {
 
             const importantArticle = importantArticles.slice(0, 1);
 
-            const otherArticles = articles.filter((article) => article.id !== importantArticle[0].id).slice(0, 2);
+            const otherArticles = articles
+                .filter((article) => article.id !== importantArticle[0].id)
+                .slice(0, 2);
 
             setHomeScreenArticles([...importantArticle, ...otherArticles]);
         } else {
@@ -90,13 +94,21 @@ const HomeScreen = ({ navigation }) => {
                 <CustomButton
                     label={I18n.t('SeeMoreNews')}
                     onPress={() =>
-                        navigation.navigate(RouteConstants.NEWS_STACK_NAVIGATION as never, { screen: RouteConstants.NEWS_SCREEN } as never)
+                        navigation.navigate(
+                            RouteConstants.NEWS_STACK_NAVIGATION as never,
+                            { screen: RouteConstants.NEWS_SCREEN } as never
+                        )
                     }
                     backgroundColor={'transparent'}
                     isScreenFullWidth={false}
                     fontSize={14}
                     textColor={'onBackground'}
-                    style={{ paddingRight: 10, paddingTop: 0, alignSelf: 'flex-end', paddingBottom: 20 }}
+                    style={{
+                        paddingRight: 10,
+                        paddingTop: 0,
+                        alignSelf: 'flex-end',
+                        paddingBottom: 20
+                    }}
                 />
             </View>
 

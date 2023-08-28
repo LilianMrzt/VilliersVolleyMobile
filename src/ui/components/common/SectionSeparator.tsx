@@ -19,7 +19,11 @@ const SectionSeparator: FC<SectionSeparatorInterface> = ({ label, icon }) => {
                     style={[styles.logo, { width: iconSize, height: iconSize }]}
                 />
             )}
-            {label && <Text style={[styles.label, { fontSize: fontSize }, !icon && { marginLeft: 20 }]}>{label}</Text>}
+            {label && (
+                <Text style={[styles.label, { fontSize: fontSize }, !icon && { marginLeft: 20 }]}>
+                    {label}
+                </Text>
+            )}
             <View style={styles.line} />
         </View>
     );

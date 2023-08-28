@@ -57,7 +57,9 @@ const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, con
                 <View style={styles.modalView}>
                     <ScrollView contentContainerStyle={styles.modalContent}>
                         <Text style={styles.modalTitleText}>{title}</Text>
-                        <Text style={styles.modalText}>{formatTextWithBold(content, colors.onBackground)}</Text>
+                        <Text style={styles.modalText}>
+                            {formatTextWithBold(content, colors.onBackground)}
+                        </Text>
                     </ScrollView>
                     <CustomButton
                         label={'Fermer'}

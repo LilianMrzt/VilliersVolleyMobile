@@ -12,11 +12,24 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
     const { colors } = useTheme();
     const styles = terrainInformationsCardStyle(colors);
     return (
-        <Row style={[styles.container, { backgroundColor: terrain.attributes.ferme ? colors.borderOutline : colors.primary }]}>
+        <Row
+            style={[
+                styles.container,
+                {
+                    backgroundColor: terrain.attributes.ferme
+                        ? colors.borderOutline
+                        : colors.primary
+                }
+            ]}
+        >
             <View
                 style={[
                     styles.terrainColor,
-                    { backgroundColor: terrain.attributes.ferme ? colors.onBorderOutline : TERRAIN_COLOR_MAP[terrain.attributes.terrain] }
+                    {
+                        backgroundColor: terrain.attributes.ferme
+                            ? colors.onBorderOutline
+                            : TERRAIN_COLOR_MAP[terrain.attributes.terrain]
+                    }
                 ]}
             />
             {terrain.attributes.ferme ? (
@@ -41,7 +54,8 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                             color={colors.onPrimary}
                         />
                         <Text style={styles.text}>
-                            {terrain.attributes.heureDebut.slice(0, 5)} {I18n.t('To')} {terrain.attributes.heureFin.slice(0, 5)}
+                            {terrain.attributes.heureDebut.slice(0, 5)} {I18n.t('To')}{' '}
+                            {terrain.attributes.heureFin.slice(0, 5)}
                         </Text>
                     </Row>
                     <Row style={styles.row}>
@@ -62,7 +76,8 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                                 color={colors.onPrimary}
                             />
                             <Text style={styles.text}>
-                                {terrain.attributes.firstTeam} {I18n.t('Versus')} {terrain.attributes.secondTeam}
+                                {terrain.attributes.firstTeam} {I18n.t('Versus')}{' '}
+                                {terrain.attributes.secondTeam}
                             </Text>
                         </Row>
                     )}

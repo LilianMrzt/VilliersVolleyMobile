@@ -20,7 +20,10 @@ const NewsStackNavigation = ({ route, navigation }) => {
                 } as never
             );
         }
-    }, [route && route.params && route.params.article, route && route.params && route.params.fromHomeScreen]);
+    }, [
+        route && route.params && route.params.article,
+        route && route.params && route.params.fromHomeScreen
+    ]);
 
     return (
         <Stack.Navigator

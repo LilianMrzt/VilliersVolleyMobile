@@ -5,8 +5,26 @@ export interface CustomButtonInterface {
     label: string;
     onPress: () => void;
     backgroundColor?: 'primary' | 'secondary' | 'tertiary' | 'transparent';
-    textColor?: 'onPrimary' | 'onSecondary' | 'onTertiary' | 'onBackground' | 'primary' | 'secondary' | 'tertiary';
-    fontWeight?: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
+    textColor?:
+        | 'onPrimary'
+        | 'onSecondary'
+        | 'onTertiary'
+        | 'onBackground'
+        | 'primary'
+        | 'secondary'
+        | 'tertiary';
+    fontWeight?:
+        | 'normal'
+        | 'bold'
+        | '100'
+        | '200'
+        | '300'
+        | '400'
+        | '500'
+        | '600'
+        | '700'
+        | '800'
+        | '900';
     isScreenFullWidth?: boolean;
     icon?: ImageSourcePropType;
     style?: ViewStyle;
@@ -36,8 +54,20 @@ export interface CustomInputInterface {
 export interface RowInterface {
     children: React.ReactNode;
     style?: any;
-    justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
-    alignItems?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+    justify?:
+        | 'flex-start'
+        | 'flex-end'
+        | 'center'
+        | 'space-between'
+        | 'space-around'
+        | 'space-evenly';
+    alignItems?:
+        | 'flex-start'
+        | 'flex-end'
+        | 'center'
+        | 'space-between'
+        | 'space-around'
+        | 'space-evenly';
     flex?: number;
 }
 
