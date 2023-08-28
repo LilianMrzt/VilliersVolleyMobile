@@ -22,6 +22,7 @@ const App = () => {
                         : LightTheme.colors.background
                 }
                 barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                translucent={true}
             />
             <NavigationContainer theme={isDarkMode ? DarkTheme : LightTheme}>
                 <AppNavigation />

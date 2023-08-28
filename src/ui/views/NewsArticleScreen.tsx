@@ -1,4 +1,4 @@
-import CustomHeaderCard from '@components/cards/CustomHeaderCard';
+import CustomHeader from '@components/cards/CustomHeader';
 import CustomHtml from '@components/common/CustomHtml';
 import ImageConstants from '@constants/ImageConstants';
 import RouteConstants from '@constants/routes/RouteConstants';
@@ -15,14 +15,12 @@ const NewsArticleScreen = ({ route, navigation }) => {
 
     return (
         <View style={{ flex: 1 }}>
-            <CustomHeaderCard
-                label={article?.attributes?.title}
+            <CustomHeader
+                label={''}
                 icon={ImageConstants.backArrow}
                 onPress={() => navigation.navigate(RouteConstants.NEWS_SCREEN)}
-                height={60}
-                borderRadius={1}
-                marginBottom={0}
             />
+
             <ScrollView
                 style={styles.container}
                 contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}

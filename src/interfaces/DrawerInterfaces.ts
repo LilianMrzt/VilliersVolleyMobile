@@ -11,7 +11,7 @@ export interface ImageButtonInterface {
     size: DimensionValue;
     color: ColorValue;
     onPress: () => void;
-    style?: ViewStyle;
+    style?: ViewStyle | ViewStyle[];
 }
 
 export interface ImageIconInterface {

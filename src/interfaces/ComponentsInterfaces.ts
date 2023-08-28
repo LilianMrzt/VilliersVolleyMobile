@@ -71,13 +71,16 @@ export interface RowInterface {
     flex?: number;
 }
 
-export interface CustomHeaderCardInterface {
+export interface CustomHeaderInterface {
     label: string;
     icon?: ImageSourcePropType;
     onPress?: () => void;
     height?: number;
     borderRadius?: number;
-    marginBottom?: number;
+    hasBorder?: boolean;
+    elevation?: number;
+    isHomeScreen?: boolean;
+    backgroundColor?: string;
 }
 
 export interface ShortcutCardInterface {

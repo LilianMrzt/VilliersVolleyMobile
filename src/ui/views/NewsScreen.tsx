@@ -1,6 +1,8 @@
+// @ts-ignore
 import Api from '@api/Api';
-import CustomHeaderCard from '@components/cards/CustomHeaderCard';
+import CustomHeader from '@components/cards/CustomHeader';
 import NewsCard from '@components/cards/NewsCard';
+import I18n from '@utils/I18n';
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 
@@ -13,7 +15,7 @@ const NewsScreen = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <CustomHeaderCard label={'Actualités du club'} />
+            <CustomHeader label={I18n.t('NewsScreen')} />
             {articles.map((article, index) => (
                 <NewsCard
                     key={index}

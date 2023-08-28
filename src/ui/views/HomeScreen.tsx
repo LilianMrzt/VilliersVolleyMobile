@@ -1,5 +1,6 @@
+// @ts-ignore
 import Api from '@api/Api';
-import CustomHeaderCard from '@components/cards/CustomHeaderCard';
+import CustomHeader from '@components/cards/CustomHeader';
 import GeneralInformationsCard from '@components/cards/GeneralInformationsCard';
 import NewsCard from '@components/cards/NewsCard';
 import ShortcutCard from '@components/cards/ShortcutCard';
@@ -69,13 +70,22 @@ const HomeScreen = ({ navigation }) => {
         >
             <ImageIcon
                 source={ImageConstants.volleyballBall2}
-                size={400}
+                size={300}
                 color={colors.borderOutline}
                 style={styles.backgroundImage}
             />
 
-            <CustomHeaderCard label={I18n.t('ClubName')} />
-            <View>
+            <CustomHeader
+                label={I18n.t('ClubName')}
+                isHomeScreen={true}
+                elevation={1}
+                backgroundColor={colors.surface}
+                height={120}
+                borderRadius={30}
+                hasBorder={true}
+            />
+
+            <View style={styles.mainContainer}>
                 <Text style={styles.titleText}>{I18n.t('Informations')}</Text>
                 <GeneralInformationsCard
                     title={generalInformations?.title}
@@ -107,7 +117,7 @@ const HomeScreen = ({ navigation }) => {
                         paddingRight: 10,
                         paddingTop: 0,
                         alignSelf: 'flex-end',
-                        paddingBottom: 20
+                        paddingBottom: 0
                     }}
                 />
             </View>
@@ -147,9 +157,12 @@ const homeScreenStyle = (colors: any) =>
             backgroundColor: colors.background,
             justifyContent: 'flex-start'
         },
+        mainContainer: {
+            marginTop: 10
+        },
         backgroundImage: {
             position: 'absolute',
-            bottom: -90,
+            bottom: 50,
             right: -90,
             opacity: 0.4
         },
