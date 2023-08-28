@@ -32,6 +32,9 @@ const CustomHtml = ({ html = undefined }) => {
             color: colors.onBackground,
             justifyContent: 'center',
             alignItems: 'center'
+        },
+        ul: {
+            color: colors.onBackground
         }
     };
 
@@ -52,7 +55,6 @@ const CustomHtml = ({ html = undefined }) => {
 
 const styles = StyleSheet.create({
     html_container: {
-        marginTop: 20,
         paddingLeft: 20,
         paddingRight: 20
     }

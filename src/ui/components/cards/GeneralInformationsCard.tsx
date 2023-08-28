@@ -1,4 +1,5 @@
 import CustomButton from '@components/common/CustomButton';
+import CustomHtml from '@components/common/CustomHtml';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
 import ImageConstants from '@constants/ImageConstants';
@@ -6,9 +7,8 @@ import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsIn
 import { useTheme } from '@react-navigation/native';
 import I18n from '@utils/I18n';
 import Size from '@utils/Size';
-import formatTextWithBold from '@utils/TextUtils';
 import React, { FC, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Modal from 'react-native-modal';
 
 const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, content }) => {
@@ -19,7 +19,12 @@ const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, con
 
     return (
         <View style={styles.container}>
-            <View style={styles.touchable}>
+            <TouchableOpacity
+                onPress={() => {
+                    setIsVisible(true);
+                }}
+                style={styles.touchable}
+            >
                 <Row>
                     <ImageIcon
                         source={ImageConstants.information}
@@ -41,7 +46,7 @@ const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, con
                     fontSize={14}
                     style={{ paddingRight: 0, paddingBottom: 0 }}
                 />
-            </View>
+            </TouchableOpacity>
 
             <Modal
                 coverScreen={true}
@@ -53,13 +58,15 @@ const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, con
                 useNativeDriverForBackdrop={true}
                 animationIn={'fadeIn'}
                 animationOut={'fadeOut'}
+                deviceHeight={Size.getScreenHeight() + StatusBar.currentHeight}
             >
                 <View style={styles.modalView}>
-                    <ScrollView contentContainerStyle={styles.modalContent}>
+                    <ScrollView
+                        contentContainerStyle={styles.modalContent}
+                        showsVerticalScrollIndicator={false}
+                    >
                         <Text style={styles.modalTitleText}>{title}</Text>
-                        <Text style={styles.modalText}>
-                            {formatTextWithBold(content, colors.onBackground)}
-                        </Text>
+                        <CustomHtml html={content} />
                     </ScrollView>
                     <CustomButton
                         label={'Fermer'}
@@ -106,7 +113,8 @@ const generalInformationsCardStyle = (colors: any) =>
             color: colors.onSurface,
             fontWeight: 'bold',
             fontSize: 20,
-            marginBottom: 10
+            marginBottom: 20,
+            marginTop: 20
         },
         modalView: {
             width: Size.getScreenWidth() - 40,
@@ -119,8 +127,10 @@ const generalInformationsCardStyle = (colors: any) =>
             color: colors.onSurface
         },
         modalContent: {
-            padding: 20,
-            paddingBottom: 80
+            width: Size.getScreenWidth() - 40,
+            paddingLeft: 30,
+            paddingRight: 30,
+            alignItems: 'center'
         },
         closeButton: {
             position: 'absolute',
