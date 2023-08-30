@@ -29,6 +29,9 @@ const HomeScreen = ({ navigation }) => {
         setGeneralInformations(Api.getGeneralInformations());
     }, []);
 
+    /**
+     * Permet de récupérer les articles affichés sur la page d'accueil
+     */
     const fetchHomeScreenArticles = () => {
         const articles = Api.getArticles();
         const importantArticles = articles.filter(

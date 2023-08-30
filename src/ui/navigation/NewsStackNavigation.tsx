@@ -11,6 +11,10 @@ const Stack = createStackNavigator();
 const NewsStackNavigation = ({ route, navigation }) => {
     const { colors } = useTheme();
 
+    /**
+     * Permet de gérer la redirection si l'on clique sur un article de la homepage
+     * [TODO]: A changer, logique pas bonne
+     */
     useEffect(() => {
         if (route && route.params && route.params.fromHomeScreen) {
             navigation.navigate(

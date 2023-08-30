@@ -22,6 +22,9 @@ const CalendarBottomSheet: React.FC<CalendarBottomSheetInterface> = ({
 
     const sheetRef = useRef<BottomSheet>(null);
 
+    /**
+     * Permet de définir les deux points d'arret de la bottom sheet
+     */
     const snapPoints = useMemo(() => {
         if (isSameMonthAndYear) {
             return [Size.getWindowContentHeight() * 0.32, '70%'];

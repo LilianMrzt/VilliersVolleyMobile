@@ -27,22 +27,35 @@ const DayCard: React.FC<DayCardInterface> = ({
         activeMonth === activeDate.getMonth() &&
         activeYear === activeDate.getFullYear();
 
+    /**
+     * Permet de savoir si le mois actuel est Décembre
+     */
     const isDecember = () => {
         return activeMonth === 11;
     };
+
+    /**
+     * Permet de savoir si le mois actuel est Janvier
+     */
     const isJanuary = () => {
         return activeMonth === 0;
     };
 
+    /**
+     * Permet de gérer le changement de date lors d'un click sur une date
+     */
     const handleDateChange = () => {
         const newDate = new Date(activeDate.getFullYear(), activeMonth, activeDate.getDate());
 
+        // Si on clique sur une date du mois suivant
         if (item.isNextMonth === true) {
             newDate.setDate(item.day);
             newDate.setMonth(isDecember() ? 0 : activeMonth + 1);
             newDate.setFullYear(isDecember() ? activeYear + 1 : activeYear);
             changeMonth(1, newDate.getMonth(), newDate);
-        } else if (item.isPreviousMonth === true) {
+        }
+        // Si on clique sur une date du mois précédent
+        else if (item.isPreviousMonth === true) {
             newDate.setDate(item.day);
             newDate.setMonth(isJanuary() ? 11 : activeMonth - 1);
             newDate.setFullYear(isJanuary() ? activeYear - 1 : activeYear);
@@ -56,12 +69,18 @@ const DayCard: React.FC<DayCardInterface> = ({
 
     const isCurrentYear = activeYear === currentDate.getFullYear();
 
+    /**
+     * Permet de trier les terrains en fonction de leur couleur
+     */
     const sortedTerrains = terrains.sort((a, b) => {
         const colorA = a.attributes.terrain;
         const colorB = b.attributes.terrain;
         return COLOR_ORDER.indexOf(colorA) - COLOR_ORDER.indexOf(colorB);
     });
 
+    /**
+     * Permet d'afficher des points de couleur en fonction des terrains disponibles
+     */
     const coloredDots = sortedTerrains
         .filter((terrain) => TERRAIN_COLOR_MAP.hasOwnProperty(terrain.attributes.terrain))
         .map((terrain) => (

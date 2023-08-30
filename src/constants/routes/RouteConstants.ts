@@ -1,3 +1,6 @@
+/**
+ * Constantes des noms des routes
+ */
 export default {
     DRAWER_NAVIGATION: 'DrawerNavigation',
     SPLASH_SCREEN: 'SplashScreen',

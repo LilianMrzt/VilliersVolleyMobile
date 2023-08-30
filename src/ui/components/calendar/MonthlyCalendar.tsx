@@ -20,6 +20,9 @@ const MonthlyCalendar = () => {
     const screenWidth = Dimensions.get('window').width;
     const dayContainerWidth = screenWidth / 7;
 
+    /**
+     * Permet de changer le mois actuellement affiché sur le calendrier
+     */
     const changeMonth = useCallback(
         (n: number, newMonth = activeDate.getMonth(), newDate = undefined) => {
             if (n === 0) {
@@ -42,6 +45,10 @@ const MonthlyCalendar = () => {
         [activeDate, activeMonth, activeYear]
     );
 
+    /**
+     * Permet de gérer le swipe à gauche et à droite
+     * @param event
+     */
     const handleSwipe = (event) => {
         if (event.nativeEvent.state === State.END) {
             const { translationX } = event.nativeEvent;
@@ -54,6 +61,9 @@ const MonthlyCalendar = () => {
         }
     };
 
+    /**
+     * Permet de gébérer les lignes la matrice du calendrier
+     */
     const rows = calendarUtils.generateMonthMatrix(activeMonth, activeYear).map((row, rowIndex) => {
         const rowItems = row.map((item, colIndex) => {
             if (rowIndex === 0) {
