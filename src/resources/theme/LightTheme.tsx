@@ -1,4 +1,4 @@
-import { CustomTheme } from '@theme/CustomTheme';
+import { CustomTheme } from '@resources/theme/CustomTheme';
 
 const LightTheme: CustomTheme = {
     dark: false,

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import DarkTheme from '@theme/DarkTheme';
-import LightTheme from '@theme/LightTheme';
+import DarkTheme from '@resources/theme/DarkTheme';
+import LightTheme from '@resources/theme/LightTheme';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import AppNavigation from '@navigation/AppNavigation';
 

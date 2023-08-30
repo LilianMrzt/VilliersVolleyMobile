@@ -31,6 +31,7 @@ export default {
     NoAvailableTerrain: 'Pas de terrain disponible ce jour',
     Unavailable: 'Indisponible',
     Reason: 'Raison',
+    Contact: 'Contact',
 
     News: 'Actualités',
     SeeMoreNews: "Voir plus d'actualités",

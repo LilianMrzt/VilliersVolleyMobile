@@ -1,4 +1,4 @@
-import { CustomTheme } from '@theme/CustomTheme';
+import { CustomTheme } from '@resources/theme/CustomTheme';
 
 const DarkTheme: CustomTheme = {
     dark: true,
@@ -13,7 +13,7 @@ const DarkTheme: CustomTheme = {
         onError: '#690005',
         errorContainer: '#93000a',
         onErrorContainer: '#ffdad6',
-        background: '#171717',
+        background: '#000000',
         onBackground: '#dcdcdc',
         card: '#ffffff',
         text: '#ffffff',
