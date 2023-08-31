@@ -1,6 +1,6 @@
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import ImageConstants from '@constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { useNavigation, useTheme } from '@react-navigation/native';
 import { dateUtils } from '@utils/DateUtils';

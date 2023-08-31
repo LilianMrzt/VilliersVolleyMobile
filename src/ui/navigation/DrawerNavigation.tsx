@@ -10,7 +10,7 @@ import HomeScreen from '@ui/views/HomeScreen';
 import SettingsScreen from '@ui/views/SettingsScreen';
 import I18n from '@utils/I18n';
 import React from 'react';
-import ImageConstants from '../../constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 
 const Drawer = createDrawerNavigator();
 

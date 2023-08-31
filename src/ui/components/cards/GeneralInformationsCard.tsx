@@ -2,7 +2,7 @@ import CustomButton from '@components/common/CustomButton';
 import CustomHtml from '@components/common/CustomHtml';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import ImageConstants from '@constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsInterfaces';
 import { useTheme } from '@react-navigation/native';
 import I18n from '@utils/I18n';

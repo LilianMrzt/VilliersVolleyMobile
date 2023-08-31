@@ -1,7 +1,7 @@
 import ImageButton from '@components/common/ImageButton';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import ImageConstants from '@constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 import { ShortcutCardInterface } from '@interfaces/ComponentsInterfaces';
 import { useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';

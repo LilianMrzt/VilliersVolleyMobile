@@ -15,7 +15,7 @@ import I18n from '@utils/I18n';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import ImageConstants from '../../constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 
 const HomeScreen = ({ navigation }) => {
     const { colors } = useTheme();

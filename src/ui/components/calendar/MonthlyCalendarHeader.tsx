@@ -1,6 +1,6 @@
 import ImageButton from '@components/common/ImageButton';
 import Row from '@components/common/Row';
-import ImageConstants from '@constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 import { MonthlyCalendarHeaderProps } from '@interfaces/CalendarInterfaces';
 import { useTheme } from '@react-navigation/native';
 import { dateUtils } from '@utils/DateUtils';

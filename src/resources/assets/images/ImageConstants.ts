@@ -16,8 +16,10 @@ export default {
     news: require('@assets/images/news.png'),
     backArrow: require('@assets/images/backArrow.png'),
     forwardArrow: require('@assets/images/forwardArrow.png'),
-    menu: require('@assets/images/menu.png'),
     tournament: require('@assets/images/tournament.png'),
     newspaper: require('@assets/images/newspaper.png'),
-    shortcutBackDesign: require('@assets/images/shortcutBackDesign.png')
+    shortcutBackDesign: require('@assets/images/shortcutBackDesign.png'),
+    ArrowBack: require('@assets/images/ArrowBack.svg'),
+    Menu: require('@assets/images/Menu.svg'),
+    VolleyballBall: require('@assets/images/VolleyballBall.svg'),
 };

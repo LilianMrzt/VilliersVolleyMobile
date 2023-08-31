@@ -1,6 +1,6 @@
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import ImageConstants from '@constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 import { TERRAIN_COLOR_MAP } from '@constants/TerrainConstants';
 import { TerrainInformationsCardInterface } from '@interfaces/TerrainInterface';
 import { useTheme } from '@react-navigation/native';

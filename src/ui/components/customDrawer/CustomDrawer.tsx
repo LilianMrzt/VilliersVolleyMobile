@@ -5,7 +5,7 @@ import { useNavigation, useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ImageConstants from '../../../constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 
 const CustomDrawer = (props) => {
     const { colors } = useTheme();

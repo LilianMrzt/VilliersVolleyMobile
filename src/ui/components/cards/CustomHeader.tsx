@@ -1,7 +1,7 @@
 import ImageButton from '@components/common/ImageButton';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import ImageConstants from '@constants/ImageConstants';
+import ImageConstants from '@assets/images/ImageConstants';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { CustomHeaderInterface } from '@interfaces/ComponentsInterfaces';
 import { useNavigation, useTheme } from '@react-navigation/native';
@@ -10,6 +10,8 @@ import LightTheme from '@resources/theme/LightTheme';
 import Size from '@utils/Size';
 import React, { FC } from 'react';
 import { ImageBackground, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import IconButton from "@components/common/IconButton";
+import SvgIcon from "@components/common/SvgIcon";
 
 const CustomHeader: FC<CustomHeaderInterface> = ({
     height = 60,
@@ -56,25 +58,24 @@ const CustomHeader: FC<CustomHeaderInterface> = ({
                     flex={1}
                     style={styles.row}
                 >
-                    <ImageButton
-                        source={icon ? icon : ImageConstants.menu}
-                        size={isHomeScreen ? height * 0.4 : height * 0.66}
+                    <IconButton
+                        source={icon ? icon : ImageConstants.Menu}
+                        size={isHomeScreen ? height * 0.35 : height * 0.6}
                         color={colors.onBackground}
                         onPress={() => (onPress ? onPress() : navigation.toggleDrawer())}
                         style={[styles.button, hasBorder && styles.leftButton]}
                     />
                     <Text style={styles.homeText}>{label}</Text>
                     {isHomeScreen ? (
-                        <ImageIcon
-                            source={ImageConstants.volleyballBall}
-                            size={height * 0.5}
-                            color={colors.tertiary}
-                            style={styles.button}
+                        <SvgIcon
+                            source={ImageConstants.VolleyballBall}
+                             size={height * 0.5}
+                             color={colors.tertiary}
                         />
                     ) : (
-                        <ImageButton
-                            source={ImageConstants.volleyballBall}
-                            size={height * 0.66}
+                        <IconButton
+                            source={ImageConstants.VolleyballBall}
+                            size={height * 0.6}
                             color={colors.tertiary}
                             onPress={() =>
                                 navigation.reset({
@@ -112,7 +113,8 @@ const customHeaderStyle = (colors: any) =>
         },
         button: {
             alignItems: 'center',
-            aspectRatio: 1
+            aspectRatio: 1,
+            padding: 5
         },
         leftButton: {
             borderWidth: 1,

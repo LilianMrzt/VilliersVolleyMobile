@@ -3,7 +3,7 @@ import { useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React, { useEffect } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import Images from '../../constants/ImageConstants';
+import Images from '@assets/images/ImageConstants';
 
 const SplashScreen = ({ navigation }) => {
     const { colors } = useTheme();
