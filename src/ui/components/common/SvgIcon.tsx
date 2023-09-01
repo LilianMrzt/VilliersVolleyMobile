@@ -1,15 +1,6 @@
 import React, { FC } from 'react';
-import { ColorValue, ImageSourcePropType, ImageStyle } from 'react-native';
-import { LocalSvg, NumberProp } from 'react-native-svg';
-
-interface SvgIconInterface {
-    source: ImageSourcePropType;
-    size?: NumberProp;
-    color?: ColorValue;
-    style?: ImageStyle;
-    height?: number;
-    width?: number;
-}
+import { LocalSvg } from 'react-native-svg';
+import {SvgIconInterface} from "@interfaces/DrawerInterfaces";
 
 const SvgIcon: FC<SvgIconInterface> = ({ source, size, color = 'black', style, height, width }) => {
     return (

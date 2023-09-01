@@ -1,3 +1,4 @@
+// @ts-ignore
 import ImageConstants from '@assets/images/ImageConstants';
 import IconButton from '@components/common/IconButton';
 import Row from '@components/common/Row';

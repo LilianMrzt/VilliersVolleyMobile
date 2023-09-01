@@ -111,6 +111,7 @@ const DayCard: React.FC<DayCardInterface> = ({
                     item.day === currentDate.getDate() &&
                     activeMonth === currentDate.getMonth() &&
                     isCurrentYear &&
+                    item.isCurrentMonth &&
                     styles.currentDay
                 }
             >
@@ -120,6 +121,7 @@ const DayCard: React.FC<DayCardInterface> = ({
                         item.day === currentDate.getDate() &&
                             activeMonth === currentDate.getMonth() &&
                             isCurrentYear &&
+                            item.isCurrentMonth &&
                             styles.currentDayText,
                         item.isCurrentMonth === undefined && { opacity: 0.2 }
                     ]}
