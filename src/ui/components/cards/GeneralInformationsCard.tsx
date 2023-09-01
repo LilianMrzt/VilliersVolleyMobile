@@ -1,8 +1,8 @@
+import ImageConstants from '@assets/images/ImageConstants';
 import CustomButton from '@components/common/CustomButton';
 import CustomHtml from '@components/common/CustomHtml';
-import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import ImageConstants from '@assets/images/ImageConstants';
+import SvgIcon from '@components/common/SvgIcon';
 import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsInterfaces';
 import { useTheme } from '@react-navigation/native';
 import I18n from '@utils/I18n';
@@ -26,8 +26,8 @@ const GeneralInformationsCard: FC<GeneralInformationsInterfaces> = ({ title, con
                 style={styles.touchable}
             >
                 <Row>
-                    <ImageIcon
-                        source={ImageConstants.information}
+                    <SvgIcon
+                        source={ImageConstants.Information}
                         size={60}
                         color={colors.tertiary}
                         style={{ marginRight: 15 }}

@@ -1,6 +1,6 @@
-import ImageButton from '@components/common/ImageButton';
-import Row from '@components/common/Row';
 import ImageConstants from '@assets/images/ImageConstants';
+import IconButton from '@components/common/IconButton';
+import Row from '@components/common/Row';
 import { MonthlyCalendarHeaderProps } from '@interfaces/CalendarInterfaces';
 import { useTheme } from '@react-navigation/native';
 import { dateUtils } from '@utils/DateUtils';
@@ -21,9 +21,9 @@ const MonthlyCalendarHeader: React.FC<MonthlyCalendarHeaderProps> = ({
     return (
         <Row style={styles.header}>
             <View style={styles.leftIcon}>
-                <ImageButton
-                    source={ImageConstants.leftArrow}
-                    size={16}
+                <IconButton
+                    source={ImageConstants.ArrowLeft}
+                    size={28}
                     color={colors.onBackground}
                     onPress={onPreviousMonthPressed}
                 />
@@ -36,16 +36,16 @@ const MonthlyCalendarHeader: React.FC<MonthlyCalendarHeaderProps> = ({
             </View>
 
             <View style={styles.rightIcons}>
-                <ImageButton
-                    source={ImageConstants.calendar}
-                    size={20}
+                <IconButton
+                    source={ImageConstants.Calendar}
+                    size={26}
                     color={colors.onBackground}
                     onPress={onGoToCurrentMonthPressed}
                     style={{ marginRight: 20 }}
                 />
-                <ImageButton
-                    source={ImageConstants.rightArrow}
-                    size={16}
+                <IconButton
+                    source={ImageConstants.ArrowRight}
+                    size={28}
                     color={colors.onBackground}
                     onPress={onNextMonthPressed}
                 />

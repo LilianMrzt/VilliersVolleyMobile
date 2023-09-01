@@ -1,6 +1,6 @@
-import ImageIcon from '@components/common/ImageIcon';
-import Row from '@components/common/Row';
 import ImageConstants from '@assets/images/ImageConstants';
+import Row from '@components/common/Row';
+import SvgIcon from '@components/common/SvgIcon';
 import { TERRAIN_COLOR_MAP } from '@constants/TerrainConstants';
 import { TerrainInformationsCardInterface } from '@interfaces/TerrainInterface';
 import { useTheme } from '@react-navigation/native';
@@ -48,9 +48,9 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                         {I18n.t('Terrain')} {terrain.attributes.terrain}
                     </Text>
                     <Row style={styles.row}>
-                        <ImageIcon
-                            source={ImageConstants.clock}
-                            size={16}
+                        <SvgIcon
+                            source={ImageConstants.Clock}
+                            size={20}
                             color={colors.onPrimary}
                         />
                         <Text style={styles.text}>
@@ -59,8 +59,8 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                         </Text>
                     </Row>
                     <Row style={styles.row}>
-                        <ImageIcon
-                            source={ImageConstants.volleyballBall}
+                        <SvgIcon
+                            source={ImageConstants.VolleyballBall}
                             size={16}
                             color={colors.onPrimary}
                         />
@@ -70,8 +70,8 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                     </Row>
                     {terrain.attributes.firstTeam && terrain.attributes.secondTeam && (
                         <Row style={styles.row}>
-                            <ImageIcon
-                                source={ImageConstants.team}
+                            <SvgIcon
+                                source={ImageConstants.Team}
                                 size={16}
                                 color={colors.onPrimary}
                             />
@@ -83,8 +83,8 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                     )}
                     {terrain.attributes.trainer && (
                         <Row style={styles.row}>
-                            <ImageIcon
-                                source={ImageConstants.defaultUser}
+                            <SvgIcon
+                                source={ImageConstants.User}
                                 size={16}
                                 color={colors.onPrimary}
                             />

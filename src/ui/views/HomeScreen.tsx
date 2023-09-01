@@ -1,5 +1,6 @@
 // @ts-ignore
 import Api from '@api/Api';
+import ImageConstants from '@assets/images/ImageConstants';
 import CustomHeader from '@components/cards/CustomHeader';
 import GeneralInformationsCard from '@components/cards/GeneralInformationsCard';
 import NewsCard from '@components/cards/NewsCard';
@@ -15,7 +16,6 @@ import I18n from '@utils/I18n';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import ImageConstants from '@assets/images/ImageConstants';
 
 const HomeScreen = ({ navigation }) => {
     const { colors } = useTheme();
@@ -132,7 +132,7 @@ const HomeScreen = ({ navigation }) => {
                         paddingRight={10}
                         onPress={() => navigation.navigate(RouteConstants.CALENDAR_SCREEN)}
                         label={I18n.t('CalendarScreen')}
-                        icon={ImageConstants.calendar}
+                        icon={ImageConstants.Calendar}
                     />
                     <ShortcutCard
                         paddingLeft={10}
@@ -143,7 +143,7 @@ const HomeScreen = ({ navigation }) => {
                             )
                         }
                         label={I18n.t('NewsScreen')}
-                        icon={ImageConstants.news}
+                        icon={ImageConstants.News}
                     />
                 </Row>
             </View>

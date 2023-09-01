@@ -1,12 +1,12 @@
-import ImageButton from '@components/common/ImageButton';
-import ImageIcon from '@components/common/ImageIcon';
-import Row from '@components/common/Row';
 import ImageConstants from '@assets/images/ImageConstants';
+import IconButton from '@components/common/IconButton';
+import Row from '@components/common/Row';
+import SvgIcon from '@components/common/SvgIcon';
 import { ShortcutCardInterface } from '@interfaces/ComponentsInterfaces';
 import { useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React, { FC } from 'react';
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const ShortcutCard: FC<ShortcutCardInterface> = ({
     paddingLeft = 20,
@@ -32,24 +32,30 @@ const ShortcutCard: FC<ShortcutCardInterface> = ({
                 style={[styles.container]}
                 onPress={onPress}
             >
-                <ImageBackground
-                    resizeMode={'cover'}
-                    tintColor={`${colors.onSecondary}11`}
-                    source={ImageConstants.shortcutBackDesign}
+                <SvgIcon
+                    source={ImageConstants.NetDesign}
                     style={styles.image}
-                >
+                    color={`${colors.onSecondary}11`}
+                    size={'100%'}
+                />
+                <View style={styles.content}>
                     <Row
                         justify={'space-between'}
                         flex={1}
                     >
-                        <ImageIcon
+                        <SvgIcon
                             source={icon}
                             size={40}
                             color={colors.onSecondary}
                         />
-                        <ImageButton
-                            source={ImageConstants.forwardArrow}
-                            size={16}
+                        {/*<ImageIcon
+                        source={icon}
+                        size={40}
+                        color={colors.onSecondary}
+                        />*/}
+                        <IconButton
+                            source={ImageConstants.ArrowForward}
+                            size={25}
                             color={colors.onSecondary}
                             style={styles.arrowButton}
                             onPress={onPress}
@@ -59,7 +65,16 @@ const ShortcutCard: FC<ShortcutCardInterface> = ({
                     <View style={styles.textBox}>
                         <Text style={styles.text}>{label}</Text>
                     </View>
-                </ImageBackground>
+                </View>
+
+                {/*  <ImageBackground
+                    resizeMode={'cover'}
+                    tintColor={`${colors.onSecondary}11`}
+                    source={ ImageConstants.shortcutBackDesign}
+                    style={styles.image}
+                >
+
+                </ImageBackground>*/}
             </TouchableOpacity>
         </View>
     );
@@ -90,11 +105,17 @@ const shortcutCardStyle = (colors: any) =>
         arrowButton: {
             borderWidth: 2,
             borderRadius: 5,
-            padding: 3,
             borderColor: colors.onSecondary,
             marginRight: 10
         },
         image: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0
+        },
+        content: {
             flex: 1,
             padding: 15
         }

@@ -1,10 +1,26 @@
-import React from "react";
-import {LocalSvg} from "react-native-svg";
+import React, { FC } from 'react';
+import { ColorValue, ImageSourcePropType, ImageStyle } from 'react-native';
+import { LocalSvg, NumberProp } from 'react-native-svg';
 
-const SvgIcon = ({source, size, color = 'black'}) => {
-  return (
-      <LocalSvg asset={source} height={size} width={size} color={color}/>
-  )
+interface SvgIconInterface {
+    source: ImageSourcePropType;
+    size?: NumberProp;
+    color?: ColorValue;
+    style?: ImageStyle;
+    height?: number;
+    width?: number;
 }
 
-export default SvgIcon
+const SvgIcon: FC<SvgIconInterface> = ({ source, size, color = 'black', style, height, width }) => {
+    return (
+        <LocalSvg
+            asset={source}
+            height={size || height}
+            width={size || width}
+            color={color}
+            style={style}
+        />
+    );
+};
+
+export default SvgIcon;

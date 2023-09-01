@@ -1,13 +1,11 @@
+import ImageConstants from '@assets/images/ImageConstants';
 import CustomHeader from '@components/cards/CustomHeader';
 import CustomHtml from '@components/common/CustomHtml';
-import ImageConstants from '@assets/images/ImageConstants';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { useTheme } from '@react-navigation/native';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import {LocalSvg, SvgUri} from 'react-native-svg';
-import SvgIcon from "@components/common/SvgIcon";
 
 const NewsArticleScreen = ({ route, navigation }) => {
     const { colors } = useTheme();
@@ -41,7 +39,6 @@ const NewsArticleScreen = ({ route, navigation }) => {
 
                 <CustomHtml html={article?.attributes?.content} />
             </ScrollView>
-
         </View>
     );
 };

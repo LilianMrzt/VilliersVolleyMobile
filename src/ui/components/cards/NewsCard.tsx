@@ -1,6 +1,7 @@
+import ImageConstants from '@assets/images/ImageConstants';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
-import ImageConstants from '@assets/images/ImageConstants';
+import SvgIcon from '@components/common/SvgIcon';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { useNavigation, useTheme } from '@react-navigation/native';
 import { dateUtils } from '@utils/DateUtils';
@@ -39,17 +40,21 @@ const NewsCard = ({ article, index, fromHomeScreen = false }) => {
                 }}
             >
                 <Row alignItems={'flex-start'}>
-                    <ImageIcon
-                        source={
-                            article.attributes.important &&
-                            index === 0 &&
-                            article.attributes.mainImage.data
-                                ? { uri: article.attributes.mainImage.data.attributes.url }
-                                : ImageConstants.newspaper
-                        }
-                        size={article.attributes.important && index === 0 ? 60 : 30}
-                        color={!article.attributes.important && colors.tertiary}
-                    />
+                    {article.attributes.important &&
+                    index === 0 &&
+                    article.attributes.mainImage.data ? (
+                        <ImageIcon
+                            source={{ uri: article.attributes.mainImage.data.attributes.url }}
+                            size={article.attributes.important && index === 0 ? 60 : 30}
+                            color={!article.attributes.important && colors.tertiary}
+                        />
+                    ) : (
+                        <SvgIcon
+                            source={ImageConstants.Newspaper}
+                            size={article.attributes.important && index === 0 ? 60 : 30}
+                            color={!article.attributes.important && colors.tertiary}
+                        />
+                    )}
 
                     <View style={styles.textBox}>
                         <Text

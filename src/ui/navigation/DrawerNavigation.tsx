@@ -1,4 +1,5 @@
-import ImageIcon from '@components/common/ImageIcon';
+import ImageConstants from '@assets/images/ImageConstants';
+import SvgIcon from '@components/common/SvgIcon';
 import CustomDrawer from '@components/customDrawer/CustomDrawer';
 import RouteConstants from '@constants/routes/RouteConstants';
 import NewsStackNavigation from '@navigation/NewsStackNavigation';
@@ -7,10 +8,8 @@ import { useTheme } from '@react-navigation/native';
 import CalendarScreen from '@ui/views/CalendarScreen';
 import ContactScreen from '@ui/views/ContactScreen';
 import HomeScreen from '@ui/views/HomeScreen';
-import SettingsScreen from '@ui/views/SettingsScreen';
 import I18n from '@utils/I18n';
 import React from 'react';
-import ImageConstants from '@assets/images/ImageConstants';
 
 const Drawer = createDrawerNavigator();
 
@@ -38,8 +37,8 @@ const DrawerNavigation = () => {
                 component={HomeScreen}
                 options={{
                     drawerIcon: ({ color, size }) => (
-                        <ImageIcon
-                            source={ImageConstants.homeLogo}
+                        <SvgIcon
+                            source={ImageConstants.Home}
                             size={size}
                             color={color}
                         />
@@ -53,8 +52,8 @@ const DrawerNavigation = () => {
                 component={CalendarScreen}
                 options={{
                     drawerIcon: ({ color, size }) => (
-                        <ImageIcon
-                            source={ImageConstants.calendar}
+                        <SvgIcon
+                            source={ImageConstants.Calendar}
                             size={size}
                             color={color}
                         />
@@ -68,8 +67,8 @@ const DrawerNavigation = () => {
                 component={NewsStackNavigation}
                 options={{
                     drawerIcon: ({ color, size }) => (
-                        <ImageIcon
-                            source={ImageConstants.news}
+                        <SvgIcon
+                            source={ImageConstants.News}
                             size={size}
                             color={color}
                         />
@@ -79,26 +78,12 @@ const DrawerNavigation = () => {
             />
 
             <Drawer.Screen
-                name={RouteConstants.SETTINGS_SCREEN}
-                component={SettingsScreen}
-                options={{
-                    drawerIcon: ({ color, size }) => (
-                        <ImageIcon
-                            source={ImageConstants.settings}
-                            size={size}
-                            color={color}
-                        />
-                    ),
-                    title: I18n.t('SettingsScreen')
-                }}
-            />
-            <Drawer.Screen
                 name={RouteConstants.CONTACT_SCREEN}
                 component={ContactScreen}
                 options={{
                     drawerIcon: ({ color, size }) => (
-                        <ImageIcon
-                            source={ImageConstants.contactEmail}
+                        <SvgIcon
+                            source={ImageConstants.Contact}
                             size={size}
                             color={color}
                         />

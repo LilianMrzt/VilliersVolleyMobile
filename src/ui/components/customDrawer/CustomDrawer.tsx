@@ -1,17 +1,14 @@
-import ImageButton from '@components/common/ImageButton';
-import RouteConstants from '@constants/routes/RouteConstants';
+import ImageConstants from '@assets/images/ImageConstants';
+import SvgIcon from '@components/common/SvgIcon';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { useNavigation, useTheme } from '@react-navigation/native';
+import { useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ImageConstants from '@assets/images/ImageConstants';
 
 const CustomDrawer = (props) => {
     const { colors } = useTheme();
     const styles = customDrawerStyle(colors);
-
-    const navigation = useNavigation();
 
     return (
         <View style={styles.background}>
@@ -20,11 +17,10 @@ const CustomDrawer = (props) => {
                 contentContainerStyle={styles.headerBackground}
             >
                 <View style={styles.drawerHeader}>
-                    <ImageButton
-                        source={ImageConstants.defaultUser}
+                    <SvgIcon
+                        source={ImageConstants.User}
                         size={Size.getScreenWidth() * 0.3}
                         color={colors.tertiary}
-                        onPress={() => navigation.navigate(RouteConstants.SETTINGS_SCREEN as never)}
                     />
                     <Text style={styles.userInfos}>FirstName LastName</Text>
                 </View>
