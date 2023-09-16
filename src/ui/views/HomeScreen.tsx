@@ -8,6 +8,7 @@ import ShortcutCard from '@components/cards/ShortcutCard';
 import CustomButton from '@components/common/CustomButton';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
+import HomeScreenLoader from '@components/loaders/HomeScreenLoader';
 import RouteConstants from '@constants/routes/RouteConstants';
 import { GeneralInformationsInterface } from '@interfaces/ApiInterfaces';
 import { useTheme } from '@react-navigation/native';
@@ -22,6 +23,8 @@ const HomeScreen = ({ navigation }) => {
 
     const [generalInformations, setGeneralInformations] = useState<GeneralInformationsInterface>();
     const [articles, setArticles] = useState([]);
+    const [isGeneralInfoLoading, setIsGeneralInfoLoading] = useState(true);
+    const [isArticlesLoading, setIsArticlesLoading] = useState(true);
 
     useEffect(() => {
         fetchHomeScreenArticles();
@@ -35,6 +38,7 @@ const HomeScreen = ({ navigation }) => {
         Api.getArticles('?sort=publishedAt:desc&pagination[limit]=3&populate=*').then(
             (response) => {
                 setArticles(response);
+                setIsArticlesLoading(false);
             }
         );
     };
@@ -45,6 +49,7 @@ const HomeScreen = ({ navigation }) => {
     const fetchGeneralInformations = () => {
         Api.getGeneralInformations().then((response) => {
             setGeneralInformations(response);
+            setIsGeneralInfoLoading(false);
         });
     };
 
@@ -79,39 +84,45 @@ const HomeScreen = ({ navigation }) => {
             />
 
             <View style={styles.mainContainer}>
-                <Text style={styles.titleText}>{I18n.t('Informations')}</Text>
-                <GeneralInformationsCard
-                    title={generalInformations?.attributes.title}
-                    content={generalInformations?.attributes.content}
-                />
+                {isGeneralInfoLoading && isArticlesLoading ? (
+                    <HomeScreenLoader />
+                ) : (
+                    <>
+                        <Text style={styles.titleText}>{I18n.t('Informations')}</Text>
+                        <GeneralInformationsCard
+                            title={generalInformations?.attributes.title}
+                            content={generalInformations?.attributes.content}
+                        />
 
-                <Text style={styles.titleText}>{I18n.t('News')}</Text>
-                {articles?.map((article, index) => (
-                    <NewsCard
-                        key={index}
-                        article={article}
-                        index={index}
-                    />
-                ))}
-                <CustomButton
-                    label={I18n.t('SeeMoreNews')}
-                    onPress={() =>
-                        navigation.navigate(
-                            RouteConstants.NEWS_STACK_NAVIGATION as never,
-                            { screen: RouteConstants.NEWS_SCREEN } as never
-                        )
-                    }
-                    backgroundColor={'transparent'}
-                    isScreenFullWidth={false}
-                    fontSize={14}
-                    textColor={'onBackground'}
-                    style={{
-                        paddingRight: 10,
-                        paddingTop: 0,
-                        alignSelf: 'flex-end',
-                        paddingBottom: 0
-                    }}
-                />
+                        <Text style={styles.titleText}>{I18n.t('News')}</Text>
+                        {articles?.map((article, index) => (
+                            <NewsCard
+                                key={index}
+                                article={article}
+                                index={index}
+                            />
+                        ))}
+                        <CustomButton
+                            label={I18n.t('SeeMoreNews')}
+                            onPress={() =>
+                                navigation.navigate(
+                                    RouteConstants.NEWS_STACK_NAVIGATION as never,
+                                    { screen: RouteConstants.NEWS_SCREEN } as never
+                                )
+                            }
+                            backgroundColor={'transparent'}
+                            isScreenFullWidth={false}
+                            fontSize={14}
+                            textColor={'onBackground'}
+                            style={{
+                                paddingRight: 10,
+                                paddingTop: 0,
+                                alignSelf: 'flex-end',
+                                paddingBottom: 0
+                            }}
+                        />
+                    </>
+                )}
             </View>
 
             <View>
@@ -136,8 +147,6 @@ const HomeScreen = ({ navigation }) => {
                     />
                 </Row>
             </View>
-
-            <View />
         </View>
     );
 };

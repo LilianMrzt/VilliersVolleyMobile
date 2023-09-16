@@ -69,12 +69,7 @@ const CustomHeader: FC<CustomHeaderInterface> = ({
                         source={ImageConstants.VolleyballBall}
                         size={height * 0.6}
                         color={colors.tertiary}
-                        onPress={() =>
-                            navigation.reset({
-                                index: 0,
-                                routes: [{ name: RouteConstants.HOME_SCREEN_NAVIGATION }]
-                            })
-                        }
+                        onPress={() => navigation.navigate(RouteConstants.HOME_SCREEN_NAVIGATION)}
                     />
                 )}
             </Row>
