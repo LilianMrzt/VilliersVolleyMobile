@@ -5,7 +5,7 @@ import {
     ImageStyle,
     ViewStyle
 } from 'react-native';
-import {NumberProp} from "react-native-svg";
+import { NumberProp } from 'react-native-svg';
 
 export interface ImageButtonInterface {
     source: ImageSourcePropType;

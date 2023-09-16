@@ -7,7 +7,7 @@ const ImageIcon: FC<ImageIconInterface> = ({ source, color, size, style }) => {
         <Image
             source={source}
             resizeMode={'contain'}
-            style={[{ tintColor: color, width: size, height: size }, style]}
+            style={[color && { tintColor: color }, { width: size, height: size }, style]}
         />
     );
 };

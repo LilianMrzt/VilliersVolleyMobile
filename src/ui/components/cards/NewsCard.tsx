@@ -1,5 +1,4 @@
 import ImageConstants from '@assets/images/ImageConstants';
-import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
 import SvgIcon from '@components/common/SvgIcon';
 import RouteConstants from '@constants/routes/RouteConstants';
@@ -29,21 +28,15 @@ const NewsCard = ({ article, index }) => {
                 }}
             >
                 <Row alignItems={'flex-start'}>
-                    {article.attributes.important &&
-                    index === 0 &&
-                    article.attributes.mainImage.data ? (
-                        <ImageIcon
-                            source={{ uri: article.attributes.mainImage.data.attributes.url }}
-                            size={article.attributes.important && index === 0 ? 60 : 30}
-                            color={!article.attributes.important && colors.tertiary}
-                        />
-                    ) : (
-                        <SvgIcon
-                            source={ImageConstants.Newspaper}
-                            size={article.attributes.important && index === 0 ? 60 : 30}
-                            color={!article.attributes.important && colors.tertiary}
-                        />
-                    )}
+                    <SvgIcon
+                        source={
+                            article.attributes.articleType == 'Actualité'
+                                ? ImageConstants.News
+                                : ImageConstants.Newspaper
+                        }
+                        size={30}
+                        color={colors.tertiary}
+                    />
 
                     <View style={styles.textBox}>
                         <Text
@@ -52,16 +45,6 @@ const NewsCard = ({ article, index }) => {
                         >
                             {article.attributes.title}
                         </Text>
-                        {article.attributes.important && index === 0 && (
-                            <View>
-                                <Text
-                                    numberOfLines={2}
-                                    style={styles.previewText}
-                                >
-                                    {article.attributes.description}
-                                </Text>
-                            </View>
-                        )}
                         <Text style={styles.publishedDate}>
                             {dateUtils.formatDate(article.attributes.publishedAt)}
                         </Text>

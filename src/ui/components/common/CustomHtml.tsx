@@ -1,8 +1,8 @@
-import {url} from '@api/Api';
-import {useTheme} from '@react-navigation/native';
+import { url } from '@api/Api';
+import { useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 
 const CustomHtml = ({ html = undefined }) => {
