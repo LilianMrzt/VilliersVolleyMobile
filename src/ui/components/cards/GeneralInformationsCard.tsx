@@ -128,8 +128,9 @@ const generalInformationsCardStyle = (colors: any) =>
         },
         modalContent: {
             width: Size.getScreenWidth() - 40,
-            paddingLeft: 30,
-            paddingRight: 30,
+            paddingLeft: 10,
+            paddingRight: 10,
+            paddingBottom: 80,
             alignItems: 'center'
         },
         closeButton: {

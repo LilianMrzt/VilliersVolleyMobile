@@ -1,8 +1,8 @@
 import ImageConstants from '@assets/images/ImageConstants';
 import CustomHeader from '@components/cards/CustomHeader';
 import CustomHtml from '@components/common/CustomHtml';
-import RouteConstants from '@constants/routes/RouteConstants';
 import { useTheme } from '@react-navigation/native';
+import { getMediaUrl } from '@utils/MediaUtils';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -18,7 +18,7 @@ const NewsArticleScreen = ({ route, navigation }) => {
             <CustomHeader
                 label={''}
                 icon={ImageConstants.ArrowBack}
-                onPress={() => navigation.navigate(RouteConstants.NEWS_SCREEN)}
+                onPress={() => navigation.goBack()}
             />
 
             <ScrollView
@@ -28,7 +28,9 @@ const NewsArticleScreen = ({ route, navigation }) => {
             >
                 {article?.attributes?.mainImage?.data && (
                     <Image
-                        source={{ uri: article?.attributes?.mainImage?.data?.attributes?.url }}
+                        source={{
+                            uri: getMediaUrl(article?.attributes?.mainImage?.data?.attributes?.url)
+                        }}
                         height={200}
                         style={styles.image}
                         resizeMode="cover"

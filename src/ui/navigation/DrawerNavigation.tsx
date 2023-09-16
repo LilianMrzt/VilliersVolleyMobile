@@ -2,12 +2,12 @@ import ImageConstants from '@assets/images/ImageConstants';
 import SvgIcon from '@components/common/SvgIcon';
 import CustomDrawer from '@components/customDrawer/CustomDrawer';
 import RouteConstants from '@constants/routes/RouteConstants';
+import HomeScreenNavigation from '@navigation/HomeScreenNavigation';
 import NewsStackNavigation from '@navigation/NewsStackNavigation';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from '@react-navigation/native';
 import CalendarScreen from '@ui/views/CalendarScreen';
 import ContactScreen from '@ui/views/ContactScreen';
-import HomeScreen from '@ui/views/HomeScreen';
 import I18n from '@utils/I18n';
 import React from 'react';
 
@@ -19,7 +19,7 @@ const DrawerNavigation = () => {
     return (
         <Drawer.Navigator
             drawerContent={(props) => <CustomDrawer {...props} />}
-            initialRouteName={RouteConstants.HOME_SCREEN}
+            initialRouteName={RouteConstants.HOME_SCREEN_NAVIGATION}
             screenOptions={{
                 drawerActiveTintColor: colors.tertiary,
                 drawerActiveBackgroundColor: `${colors.primary}55`,
@@ -33,8 +33,8 @@ const DrawerNavigation = () => {
             }}
         >
             <Drawer.Screen
-                name={RouteConstants.HOME_SCREEN}
-                component={HomeScreen}
+                name={RouteConstants.HOME_SCREEN_NAVIGATION}
+                component={HomeScreenNavigation}
                 options={{
                     drawerIcon: ({ color, size }) => (
                         <SvgIcon

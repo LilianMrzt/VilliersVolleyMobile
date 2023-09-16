@@ -10,18 +10,19 @@ const NewsScreen = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        setArticles(Api.getArticles());
+        Api.getArticles('?sort=publishedAt:desc&populate=*').then((response) => {
+            setArticles(response);
+        });
     }, []);
 
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader label={I18n.t('NewsScreen')} />
-            {articles.map((article, index) => (
+            {articles?.map((article, index) => (
                 <NewsCard
                     key={index}
                     article={article}
                     index={index}
-                    fromHomeScreen={false}
                 />
             ))}
         </View>

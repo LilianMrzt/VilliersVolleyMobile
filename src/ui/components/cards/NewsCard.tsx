@@ -9,7 +9,7 @@ import Size from '@utils/Size';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const NewsCard = ({ article, index, fromHomeScreen = false }) => {
+const NewsCard = ({ article, index }) => {
     const { colors } = useTheme();
     const styles = newsCardStyle(colors);
 
@@ -20,23 +20,12 @@ const NewsCard = ({ article, index, fromHomeScreen = false }) => {
             <TouchableOpacity
                 style={styles.newsCard}
                 onPress={() => {
-                    if (fromHomeScreen) {
-                        navigation.navigate(
-                            RouteConstants.NEWS_STACK_NAVIGATION as never,
-                            {
-                                article: article,
-                                fromHomeScreen: fromHomeScreen
-                            } as never
-                        );
-                    } else {
-                        navigation.navigate(
-                            RouteConstants.NEWS_ARTICLE_SCREEN as never,
-                            {
-                                article: article,
-                                fromHomeScreen: fromHomeScreen
-                            } as never
-                        );
-                    }
+                    navigation.navigate(
+                        RouteConstants.NEWS_ARTICLE_SCREEN as never,
+                        {
+                            article: article
+                        } as never
+                    );
                 }}
             >
                 <Row alignItems={'flex-start'}>

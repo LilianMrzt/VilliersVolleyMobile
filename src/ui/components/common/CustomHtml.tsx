@@ -1,11 +1,21 @@
-import { useTheme } from '@react-navigation/native';
+import {url} from '@api/Api';
+import {useTheme} from '@react-navigation/native';
 import Size from '@utils/Size';
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import RenderHtml from 'react-native-render-html';
 
 const CustomHtml = ({ html = undefined }) => {
     const { colors } = useTheme();
+
+    /**
+     * Permet de modifier les chemins src des images contenues dans le html
+     *
+     * @param htmlContent
+     */
+    const modifySrc = (htmlContent) => {
+        return htmlContent.replace(/<img\s+src="([^"]+)"/g, `<img src="${url}$1"`);
+    };
 
     /**
      * Styles custom appliqués au html reçu
@@ -42,7 +52,7 @@ const CustomHtml = ({ html = undefined }) => {
         <SafeAreaView style={styles.html_container}>
             {html && (
                 <RenderHtml
-                    source={{ html: html }}
+                    source={{ html: modifySrc(html) }}
                     classesStyles={htmlStyle}
                     tagsStyles={htmlStyle}
                     contentWidth={Size.getScreenWidth()}

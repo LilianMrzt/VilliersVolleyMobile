@@ -8,6 +8,6 @@ module.exports = {
   jsxBracketSameLine: false,
   arrowParens: "always",
   organizeImportsSkipDestructiveCodeActions: false,
-  endOfLine: "lf",
+  endOfLine: "crlf",
   singleAttributePerLine: true,
 };

@@ -5,6 +5,7 @@ export default {
     DRAWER_NAVIGATION: 'DrawerNavigation',
     SPLASH_SCREEN: 'SplashScreen',
     NEWS_STACK_NAVIGATION: 'NewsStackNavigation',
+    HOME_SCREEN_NAVIGATION: 'HomeScreenNavigation',
 
     HOME_SCREEN: 'HomeScreen',
     CALENDAR_SCREEN: 'CalendarScreen',

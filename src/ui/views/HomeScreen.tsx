@@ -9,9 +9,8 @@ import CustomButton from '@components/common/CustomButton';
 import ImageIcon from '@components/common/ImageIcon';
 import Row from '@components/common/Row';
 import RouteConstants from '@constants/routes/RouteConstants';
-import { GeneralInformationsInterfaces } from '@interfaces/GeneralInformationsInterfaces';
+import { GeneralInformationsInterface } from '@interfaces/ApiInterfaces';
 import { useTheme } from '@react-navigation/native';
-import { dateUtils } from '@utils/DateUtils';
 import I18n from '@utils/I18n';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -21,41 +20,32 @@ const HomeScreen = ({ navigation }) => {
     const { colors } = useTheme();
     const styles = homeScreenStyle(colors);
 
-    const [homeScreenArticles, setHomeScreenArticles] = useState([]);
-    const [generalInformations, setGeneralInformations] = useState<GeneralInformationsInterfaces>();
+    const [generalInformations, setGeneralInformations] = useState<GeneralInformationsInterface>();
+    const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         fetchHomeScreenArticles();
-        setGeneralInformations(Api.getGeneralInformations());
+        fetchGeneralInformations();
     }, []);
 
     /**
      * Permet de récupérer les articles affichés sur la page d'accueil
      */
     const fetchHomeScreenArticles = () => {
-        const articles = Api.getArticles();
-        const importantArticles = articles.filter(
-            (article) => article.attributes.important === true
+        Api.getArticles('?sort=publishedAt:desc&pagination[limit]=3&populate=*').then(
+            (response) => {
+                setArticles(response);
+            }
         );
+    };
 
-        if (importantArticles.length > 0) {
-            importantArticles.sort((a, b) => {
-                return (
-                    dateUtils.extractConcatenatedDates(b.attributes.publishedAt) -
-                    dateUtils.extractConcatenatedDates(a.attributes.publishedAt)
-                );
-            });
-
-            const importantArticle = importantArticles.slice(0, 1);
-
-            const otherArticles = articles
-                .filter((article) => article.id !== importantArticle[0].id)
-                .slice(0, 2);
-
-            setHomeScreenArticles([...importantArticle, ...otherArticles]);
-        } else {
-            setHomeScreenArticles(articles.slice(0, 3));
-        }
+    /**
+     * Permet de récupérer les informations générales affichées sur la page d'accueil
+     */
+    const fetchGeneralInformations = () => {
+        Api.getGeneralInformations().then((response) => {
+            setGeneralInformations(response);
+        });
     };
 
     const insets = useSafeAreaInsets();
@@ -91,17 +81,16 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.mainContainer}>
                 <Text style={styles.titleText}>{I18n.t('Informations')}</Text>
                 <GeneralInformationsCard
-                    title={generalInformations?.title}
-                    content={generalInformations?.content}
+                    title={generalInformations?.attributes.title}
+                    content={generalInformations?.attributes.content}
                 />
 
                 <Text style={styles.titleText}>{I18n.t('News')}</Text>
-                {homeScreenArticles.map((article, index) => (
+                {articles?.map((article, index) => (
                     <NewsCard
                         key={index}
                         article={article}
                         index={index}
-                        fromHomeScreen={true}
                     />
                 ))}
                 <CustomButton

@@ -72,7 +72,7 @@ const CustomHeader: FC<CustomHeaderInterface> = ({
                         onPress={() =>
                             navigation.reset({
                                 index: 0,
-                                routes: [{ name: RouteConstants.HOME_SCREEN }]
+                                routes: [{ name: RouteConstants.HOME_SCREEN_NAVIGATION }]
                             })
                         }
                     />
