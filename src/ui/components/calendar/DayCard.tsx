@@ -81,8 +81,7 @@ const DayCard: React.FC<DayCardInterface> = ({
     /**
      * Permet d'afficher des points de couleur en fonction des terrains disponibles
      */
-    const coloredDots = sortedTerrains
-        .filter((terrain) => TERRAIN_COLOR_MAP.hasOwnProperty(terrain.attributes.terrain))
+    const coloredDots = sortedTerrains?.filter((terrain) => TERRAIN_COLOR_MAP.hasOwnProperty(terrain.attributes.terrain))
         .map((terrain) => (
             <ColoredDot
                 key={terrain.id}
@@ -129,7 +128,7 @@ const DayCard: React.FC<DayCardInterface> = ({
                     {item.day}
                 </Text>
             </View>
-            <Row justify="space-around">{coloredDots.length > 0 ? coloredDots : <View />}</Row>
+            <Row justify="space-around">{coloredDots?.length > 0 ? coloredDots : <View />}</Row>
         </TouchableOpacity>
     );
 };

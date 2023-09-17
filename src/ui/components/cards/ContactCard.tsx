@@ -3,6 +3,7 @@ import I18n from '@utils/I18n';
 import Size from '@utils/Size';
 import React from 'react';
 import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {getMediaUrl} from "@utils/MediaUtils";
 
 const ContactCard = ({ contact }) => {
     const { colors } = useTheme();
@@ -13,13 +14,13 @@ const ContactCard = ({ contact }) => {
             <View style={styles.contactCard}>
                 <Image
                     height={200}
-                    source={{ uri: contact.attributes.image.data.attributes.url }}
+                    source={{ uri: getMediaUrl(contact?.attributes?.image?.data?.attributes?.url) }}
                     style={styles.image}
                 />
                 <View style={styles.infoCard}>
-                    <Text style={styles.functionText}>{contact.attributes.function}</Text>
+                    <Text style={styles.functionText}>{contact?.attributes.function}</Text>
                     <Text style={styles.text}>
-                        {contact.attributes.firstName} {contact.attributes.lastName}
+                        {contact?.attributes.firstName} {contact?.attributes.lastName}
                     </Text>
                     <Text style={{ marginTop: 10, color: colors.onBorderOutline }}>
                         {I18n.t('Contact')}:
@@ -27,12 +28,12 @@ const ContactCard = ({ contact }) => {
                     <TouchableOpacity
                         onPress={() => Linking.openURL(`mailto:${contact.attributes.email}`)}
                     >
-                        <Text style={[styles.text]}>{contact.attributes.email}</Text>
+                        <Text style={[styles.text]}>{contact?.attributes.email}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => Linking.openURL(`tel:${contact.attributes.phone}`)}
+                        onPress={() => Linking.openURL(`tel:${contact?.attributes.phone}`)}
                     >
-                        <Text style={styles.text}>{contact.attributes.phone}</Text>
+                        <Text style={styles.text}>{contact?.attributes.phone}</Text>
                     </TouchableOpacity>
                 </View>
             </View>

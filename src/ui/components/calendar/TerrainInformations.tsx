@@ -16,19 +16,19 @@ const TerrainInformations: React.FC<TerrainInformationsInterface> = ({
     const styles = terrainInformationsStyle(colors);
 
     // On trie les terrains par l'ordre des couleurs définit
-    const sortedTerrains = terrains.sort((a, b) => {
-        const colorA = a.attributes.terrain;
-        const colorB = b.attributes.terrain;
+    const sortedTerrains = terrains?.sort((a, b) => {
+        const colorA = a?.attributes.terrain;
+        const colorB = b?.attributes.terrain;
         return COLOR_ORDER.indexOf(colorA) - COLOR_ORDER.indexOf(colorB);
     });
 
     return (
         <View style={styles.container}>
-            {sortedTerrains.length > 0 ? (
+            {sortedTerrains?.length > 0 ? (
                 <Fragment>
                     {activeMonth === activeDate.getMonth() &&
                         activeYear === activeDate.getFullYear() &&
-                        sortedTerrains.map((terrain) => (
+                        sortedTerrains?.map((terrain) => (
                             <TerrainInformationCard
                                 key={terrain.id}
                                 terrain={terrain}

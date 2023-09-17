@@ -36,8 +36,21 @@ const getSessions = async () => {
     }
 };
 
+const getContacts = async (params) => {
+    try {
+        const response = await fetch(`${url}/api/contacts${params}`, {
+            method: 'GET'
+        });
+        const json = await response.json();
+        return json.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 export default {
     getArticles,
     getGeneralInformations,
-    getSessions
+    getSessions,
+    getContacts
 };
