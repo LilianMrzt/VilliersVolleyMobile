@@ -16,7 +16,7 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
             style={[
                 styles.container,
                 {
-                    backgroundColor: terrain.attributes.ferme
+                    backgroundColor: terrain.attributes.closed
                         ? colors.borderOutline
                         : colors.primary
                 }
@@ -26,20 +26,20 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                 style={[
                     styles.terrainColor,
                     {
-                        backgroundColor: terrain.attributes.ferme
+                        backgroundColor: terrain.attributes.closed
                             ? colors.onBorderOutline
                             : TERRAIN_COLOR_MAP[terrain.attributes.terrain]
                     }
                 ]}
             />
-            {terrain.attributes.ferme ? (
+            {terrain.attributes.closed ? (
                 <View style={styles.informations}>
                     <Text style={[styles.terrainText]}>
                         {I18n.t('Terrain')} {terrain.attributes.terrain}
                     </Text>
                     <Text style={styles.text}>{I18n.t('Unavailable')}</Text>
                     <Text style={styles.text}>
-                        {I18n.t('Reason')}: {terrain.attributes.raisonsFermeture}
+                        {I18n.t('Reason')}: {terrain.attributes.closedReason}
                     </Text>
                 </View>
             ) : (
@@ -54,8 +54,8 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                             color={colors.onPrimary}
                         />
                         <Text style={styles.text}>
-                            {terrain.attributes.heureDebut.slice(0, 5)} {I18n.t('To')}{' '}
-                            {terrain.attributes.heureFin.slice(0, 5)}
+                            {terrain.attributes.start.slice(0, 5)} {I18n.t('To')}{' '}
+                            {terrain.attributes.end.slice(0, 5)}
                         </Text>
                     </Row>
                     <Row style={styles.row}>
@@ -65,7 +65,7 @@ const TerrainInformationCard: FC<TerrainInformationsCardInterface> = ({ terrain 
                             color={colors.onPrimary}
                         />
                         <Text style={styles.text}>
-                            {terrain.attributes.typeJeu} {terrain.attributes.utilisateursTerrain}
+                            {terrain.attributes.sessionType} {terrain.attributes.users}
                         </Text>
                     </Row>
                     {terrain.attributes.firstTeam && terrain.attributes.secondTeam && (

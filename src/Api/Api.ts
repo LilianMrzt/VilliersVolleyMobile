@@ -6,7 +6,6 @@ const getArticles = async (params = '') => {
             method: 'GET'
         });
         const json = await response.json();
-        console.log(response.json());
         return json.data;
     } catch (error) {
         console.error(error);
@@ -25,7 +24,20 @@ const getGeneralInformations = async () => {
     }
 };
 
+const getSessions = async () => {
+    try {
+        const response = await fetch(`${url}/api/seances`, {
+            method: 'GET'
+        });
+        const json = await response.json();
+        return json.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 export default {
     getArticles,
-    getGeneralInformations
+    getGeneralInformations,
+    getSessions
 };

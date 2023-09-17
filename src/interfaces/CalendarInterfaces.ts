@@ -21,6 +21,7 @@ export interface CalendarBottomSheetInterface {
     activeDate: Date;
     activeMonth: number;
     activeYear: number;
+    sessions: any;
 }
 
 export interface ColoredDotInterface {

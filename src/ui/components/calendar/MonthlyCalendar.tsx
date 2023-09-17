@@ -1,11 +1,11 @@
+import Api from '@api/Api';
 import CalendarBottomSheet from '@components/calendar/CalendarBottomSheet';
 import DayCard from '@components/calendar/DayCard';
 import DayNameCard from '@components/calendar/DayNameCard';
 import MonthlyCalendarHeader from '@components/calendar/MonthlyCalendarHeader';
-import { TerrainFixtures } from '@constants/fixtures/TerrainFixtures';
 import { Terrain } from '@interfaces/TerrainInterface';
 import { calendarUtils } from '@utils/CalendarUtils';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
@@ -16,9 +16,16 @@ const MonthlyCalendar = () => {
     const [activeDate, setActiveDate] = useState(currentDate);
     const [activeMonth, setActiveMonth] = useState(currentDate.getMonth());
     const [activeYear, setActiveYear] = useState(currentDate.getFullYear());
+    const [sessions, setSessions] = useState([]);
 
     const screenWidth = Dimensions.get('window').width;
     const dayContainerWidth = screenWidth / 7;
+
+    useEffect(() => {
+        Api.getSessions().then((response) => {
+            setSessions(response);
+        });
+    }, []);
 
     /**
      * Permet de changer le mois actuellement affiché sur le calendrier
@@ -78,8 +85,8 @@ const MonthlyCalendar = () => {
             } else {
                 const terrains = (): Terrain[] => {
                     if (item.isCurrentMonth) {
-                        return TerrainFixtures.filter((terrain) => {
-                            const terrainDate = new Date(terrain.attributes.jour);
+                        return sessions?.filter((terrain) => {
+                            const terrainDate = new Date(terrain.attributes.day);
                             return (
                                 terrainDate.getDate() === item.day &&
                                 item.isCurrentMonth === true &&
@@ -88,8 +95,8 @@ const MonthlyCalendar = () => {
                             );
                         });
                     } else if (item.isNextMonth) {
-                        return TerrainFixtures.filter((terrain) => {
-                            const terrainDate = new Date(terrain.attributes.jour);
+                        return sessions?.filter((terrain) => {
+                            const terrainDate = new Date(terrain.attributes.day);
                             return (
                                 terrainDate.getDate() === item.day &&
                                 item.isNextMonth === true &&
@@ -100,8 +107,8 @@ const MonthlyCalendar = () => {
                             );
                         });
                     } else if (item.isPreviousMonth) {
-                        return TerrainFixtures.filter((terrain) => {
-                            const terrainDate = new Date(terrain.attributes.jour);
+                        return sessions?.filter((terrain) => {
+                            const terrainDate = new Date(terrain.attributes.day);
                             return (
                                 terrainDate.getDate() === item.day &&
                                 item.isPreviousMonth === true &&
@@ -164,6 +171,7 @@ const MonthlyCalendar = () => {
                 activeDate={activeDate}
                 activeMonth={activeMonth}
                 activeYear={activeYear}
+                sessions={sessions}
             />
         </View>
     );

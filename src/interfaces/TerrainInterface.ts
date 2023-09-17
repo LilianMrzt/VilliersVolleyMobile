@@ -1,20 +1,20 @@
 export interface Terrain {
     id: number;
     attributes: {
-        utilisateursTerrain: string;
+        users: string;
         createdAt?: string;
         updatedAt?: string;
         publishedAt?: string;
-        heureDebut: string;
-        heureFin: string;
-        typeJeu: string;
+        start: string;
+        end: string;
+        sessionType: string;
         firstTeam?: string;
         secondTeam?: string;
         trainer?: string;
-        jour: string;
-        ferme: boolean;
+        day: string;
+        closed: boolean;
         terrain: string;
-        raisonsFermeture: string;
+        closedReason: string;
     };
 }
 

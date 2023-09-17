@@ -1,6 +1,5 @@
 import TerrainInformations from '@components/calendar/TerrainInformations';
 import SectionSeparator from '@components/common/SectionSeparator';
-import { TerrainFixtures } from '@constants//fixtures/TerrainFixtures';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { CalendarBottomSheetInterface } from '@interfaces/CalendarInterfaces';
 import { useTheme } from '@react-navigation/native';
@@ -12,7 +11,8 @@ import { StyleSheet, Text } from 'react-native';
 const CalendarBottomSheet: React.FC<CalendarBottomSheetInterface> = ({
     activeDate,
     activeMonth,
-    activeYear
+    activeYear,
+    sessions
 }) => {
     const { colors } = useTheme();
     const styles = bottomSheetViewStyle(colors);
@@ -58,8 +58,8 @@ const CalendarBottomSheet: React.FC<CalendarBottomSheetInterface> = ({
                     )}
 
                 <TerrainInformations
-                    terrains={TerrainFixtures.filter((terrain) => {
-                        const terrainDate = new Date(terrain.attributes.jour);
+                    terrains={sessions?.filter((terrain) => {
+                        const terrainDate = new Date(terrain.attributes.day);
                         return (
                             terrainDate.getDate() === activeDate.getDate() &&
                             terrainDate.getMonth() === activeDate.getMonth() &&

@@ -1,11 +1,11 @@
 // Map des couleurs des terrains pour les associer à une couleur React Native
 export const TERRAIN_COLOR_MAP = {
-    rouge: 'red',
-    bleu: 'blue',
-    jaune: 'yellow',
-    orange: 'orange',
-    vert: 'green'
+    Rouge: 'red',
+    Bleu: 'blue',
+    Jaune: 'yellow',
+    Orange: 'orange',
+    Vert: 'green'
 };
 
 // On définit l'ordre des couleurs dans lequel on souhaite l'affichage
-export const COLOR_ORDER = ['rouge', 'bleu', 'jaune', 'orange', 'vert'];
+export const COLOR_ORDER = ['Rouge', 'Bleu', 'Jaune', 'Orange', 'Vert'];

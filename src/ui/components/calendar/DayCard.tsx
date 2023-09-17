@@ -72,7 +72,7 @@ const DayCard: React.FC<DayCardInterface> = ({
     /**
      * Permet de trier les terrains en fonction de leur couleur
      */
-    const sortedTerrains = terrains.sort((a, b) => {
+    const sortedTerrains = terrains?.sort((a, b) => {
         const colorA = a.attributes.terrain;
         const colorB = b.attributes.terrain;
         return COLOR_ORDER.indexOf(colorA) - COLOR_ORDER.indexOf(colorB);
@@ -87,7 +87,7 @@ const DayCard: React.FC<DayCardInterface> = ({
             <ColoredDot
                 key={terrain.id}
                 color={
-                    terrain.attributes.ferme
+                    terrain.attributes.closed
                         ? colors.border
                         : TERRAIN_COLOR_MAP[terrain.attributes.terrain]
                 }
