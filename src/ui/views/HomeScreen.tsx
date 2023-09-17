@@ -134,17 +134,7 @@ const HomeScreen = ({ navigation }) => {
                         label={I18n.t('CalendarScreen')}
                         icon={ImageConstants.Calendar}
                     />
-                    <ShortcutCard
-                        paddingLeft={10}
-                        onPress={() =>
-                            navigation.navigate(
-                                RouteConstants.NEWS_STACK_NAVIGATION as never,
-                                { screen: RouteConstants.NEWS_SCREEN } as never
-                            )
-                        }
-                        label={I18n.t('NewsScreen')}
-                        icon={ImageConstants.News}
-                    />
+
                 </Row>
             </View>
         </View>
