@@ -4,7 +4,7 @@ import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawe
 import { useTheme } from '@react-navigation/native';
 import Size from '@utils/Size';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 const CustomDrawer = (props) => {
     const { colors } = useTheme();
@@ -18,11 +18,10 @@ const CustomDrawer = (props) => {
             >
                 <View style={styles.drawerHeader}>
                     <SvgIcon
-                        source={ImageConstants.User}
+                        source={ImageConstants.VolleyballBall}
                         size={Size.getScreenWidth() * 0.3}
                         color={colors.tertiary}
                     />
-                    <Text style={styles.userInfos}>FirstName LastName</Text>
                 </View>
                 <View style={styles.drawerItems}>
                     <DrawerItemList {...props} />

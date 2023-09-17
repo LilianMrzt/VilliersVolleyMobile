@@ -1,4 +1,4 @@
-export const url = 'http://10.0.2.2:5000';
+export const url = 'https://villiersvolleystrapi-production.up.railway.app';
 
 const getArticles = async (params = '') => {
     try {
